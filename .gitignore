@@ -1,3 +1,8 @@
+# ROS workspace
+ros-ws/build
+ros-ws/install
+ros-ws/log
+
 # Logs
 logs
 *.log
