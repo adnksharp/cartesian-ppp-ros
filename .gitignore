@@ -2,6 +2,7 @@
 electronic/electronic-backups/
 electronic/libraries/
 fp-info-cache
+*.kicad_pcb.lck
 
 # wifi settings
 wificfg.h
