@@ -488,7 +488,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../src/step/PCBZero.step",
+      "step": "../src/sw/PCBZero.stl",
       "svg": "",
       "vrml": ""
     },

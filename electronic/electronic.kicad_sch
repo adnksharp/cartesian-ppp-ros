@@ -6433,7 +6433,7 @@
 	)
 	(global_label "DRVI302"
 		(shape input)
-		(at 138.43 176.53 180)
+		(at 135.89 177.8 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6443,7 +6443,7 @@
 		)
 		(uuid "0d9ccea6-daed-4143-b007-68b282779e15")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.5829 176.53 0)
+			(at 125.0429 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6477,7 +6477,7 @@
 	)
 	(global_label "DRVI102"
 		(shape input)
-		(at 138.43 171.45 180)
+		(at 135.89 172.72 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6487,7 +6487,7 @@
 		)
 		(uuid "159a1d3a-5c35-4b81-bae5-84f78aad6880")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.5829 171.45 0)
+			(at 125.0429 172.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6521,7 +6521,7 @@
 	)
 	(global_label "DRVO101"
 		(shape input)
-		(at 138.43 93.98 180)
+		(at 135.89 96.52 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6531,7 +6531,7 @@
 		)
 		(uuid "1891fc94-ffd2-4b2a-8550-830b7602633f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.8572 93.98 0)
+			(at 124.3172 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6763,7 +6763,7 @@
 	)
 	(global_label "DRVO401"
 		(shape input)
-		(at 138.43 101.6 180)
+		(at 135.89 104.14 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6773,7 +6773,7 @@
 		)
 		(uuid "2b9fcf66-fe4e-441a-b219-a9bdd6cc109a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.8572 101.6 0)
+			(at 124.3172 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6939,7 +6939,7 @@
 	)
 	(global_label "DRVO402"
 		(shape input)
-		(at 138.43 167.64 180)
+		(at 135.89 168.91 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6949,7 +6949,7 @@
 		)
 		(uuid "44132cdc-d9a6-4f22-a858-3296f1de06a2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.8572 167.64 0)
+			(at 124.3172 168.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7115,7 +7115,7 @@
 	)
 	(global_label "DRVI301"
 		(shape input)
-		(at 138.43 110.49 180)
+		(at 135.89 113.03 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7125,7 +7125,7 @@
 		)
 		(uuid "509c0bc3-7c48-4060-a9b2-ef38d63e76b1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.5829 110.49 0)
+			(at 125.0429 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7291,7 +7291,7 @@
 	)
 	(global_label "DRVO201"
 		(shape input)
-		(at 138.43 96.52 180)
+		(at 135.89 99.06 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7301,7 +7301,7 @@
 		)
 		(uuid "65537111-d467-41b7-bd84-1c8fad6b86c0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.8572 96.52 0)
+			(at 124.3172 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7423,7 +7423,7 @@
 	)
 	(global_label "DRVI201"
 		(shape input)
-		(at 138.43 107.95 180)
+		(at 135.89 110.49 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7433,7 +7433,7 @@
 		)
 		(uuid "74d32920-e893-4faf-b8ea-fc2716166076")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.5829 107.95 0)
+			(at 125.0429 110.49 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7665,7 +7665,7 @@
 	)
 	(global_label "DRVI401"
 		(shape input)
-		(at 138.43 113.03 180)
+		(at 135.89 115.57 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7675,7 +7675,7 @@
 		)
 		(uuid "8a252ce1-87ba-462d-9b6f-c04c697d3a77")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.5829 113.03 0)
+			(at 125.0429 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7687,7 +7687,7 @@
 	)
 	(global_label "DRVO202"
 		(shape input)
-		(at 138.43 162.56 180)
+		(at 135.89 163.83 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7697,7 +7697,7 @@
 		)
 		(uuid "8a478a81-fe43-48fc-83a1-b35e3f5ee185")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.8572 162.56 0)
+			(at 124.3172 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7731,7 +7731,7 @@
 	)
 	(global_label "DRVI202"
 		(shape input)
-		(at 138.43 173.99 180)
+		(at 135.89 175.26 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7741,7 +7741,7 @@
 		)
 		(uuid "909b2cdd-d230-4b52-a1d6-f885618bd107")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.5829 173.99 0)
+			(at 125.0429 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7951,7 +7951,7 @@
 	)
 	(global_label "DRVO102"
 		(shape input)
-		(at 138.43 160.02 180)
+		(at 135.89 161.29 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7961,7 +7961,7 @@
 		)
 		(uuid "a2191c83-2e53-42ea-9956-a75e56dcee86")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.8572 160.02 0)
+			(at 124.3172 161.29 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8127,7 +8127,7 @@
 	)
 	(global_label "DRVO301"
 		(shape input)
-		(at 138.43 99.06 180)
+		(at 135.89 101.6 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8137,7 +8137,7 @@
 		)
 		(uuid "bac07ddc-8b76-4919-8f61-66dd7dcac61f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.8572 99.06 0)
+			(at 124.3172 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8259,7 +8259,7 @@
 	)
 	(global_label "DRVO302"
 		(shape input)
-		(at 138.43 165.1 180)
+		(at 135.89 166.37 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8269,7 +8269,7 @@
 		)
 		(uuid "c59b390b-af82-4fa5-b34d-3be961e245e8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 126.8572 165.1 0)
+			(at 124.3172 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8457,7 +8457,7 @@
 	)
 	(global_label "DRVI101"
 		(shape input)
-		(at 138.43 105.41 180)
+		(at 135.89 107.95 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8467,7 +8467,7 @@
 		)
 		(uuid "d5793390-a852-4839-b153-da33b52e895c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.5829 105.41 0)
+			(at 125.0429 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8677,7 +8677,7 @@
 	)
 	(global_label "DRVI402"
 		(shape input)
-		(at 138.43 179.07 180)
+		(at 135.89 180.34 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8687,7 +8687,7 @@
 		)
 		(uuid "f2c05022-7623-4613-95e3-3bb55f434d02")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.5829 179.07 0)
+			(at 125.0429 180.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9778,7 +9778,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 138.43 115.57 270)
+		(at 135.89 118.11 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9787,7 +9787,7 @@
 		(fields_autoplaced yes)
 		(uuid "2b145712-0eae-4029-bb00-e64e74250b8b")
 		(property "Reference" "#PWR038"
-			(at 132.08 115.57 0)
+			(at 129.54 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9796,7 +9796,7 @@
 			)
 		)
 		(property "Value" "Earth"
-			(at 133.35 115.57 0)
+			(at 130.81 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9805,7 +9805,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 138.43 115.57 0)
+			(at 135.89 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9814,7 +9814,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 138.43 115.57 0)
+			(at 135.89 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9823,7 +9823,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"Earth\""
-			(at 138.43 115.57 0)
+			(at 135.89 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10068,6 +10068,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 147.32 105.41 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2de23693-af63-4961-9b32-c511e99dae95")
+		(property "Reference" "#PWR044"
+			(at 147.32 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 147.32 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 147.32 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e8d2a5e7-c3be-4347-9599-cf5f39cfad1c")
+		)
+		(instances
+			(project "electronic"
+				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
+					(reference "#PWR044")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
 		(at 139.7 74.93 90)
 		(unit 1)
@@ -10145,7 +10212,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 143.51 162.56 0)
+		(at 140.97 163.83 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10153,7 +10220,7 @@
 		(dnp no)
 		(uuid "31550c93-e9c9-42f6-bb9d-318c67d40304")
 		(property "Reference" "J27"
-			(at 146.05 162.5599 90)
+			(at 143.51 163.8299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10162,7 +10229,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 146.05 165.0999 0)
+			(at 143.51 166.3699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10172,7 +10239,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical"
-			(at 143.51 162.56 0)
+			(at 140.97 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10181,7 +10248,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 143.51 162.56 0)
+			(at 140.97 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10190,7 +10257,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 143.51 162.56 0)
+			(at 140.97 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10497,6 +10564,73 @@
 			(project "electronic"
 				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
 					(reference "J7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 149.86 105.41 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3e4bf7a0-16e5-4e5b-b670-9994a348a1cf")
+		(property "Reference" "#PWR045"
+			(at 149.86 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 149.86 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 149.86 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 149.86 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 149.86 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4f6776dc-7a04-42ee-994f-6c919a9a91ed")
+		)
+		(instances
+			(project "electronic"
+				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
+					(reference "#PWR045")
 					(unit 1)
 				)
 			)
@@ -11298,7 +11432,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x05")
-		(at 143.51 110.49 0)
+		(at 140.97 113.03 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11306,7 +11440,7 @@
 		(dnp no)
 		(uuid "578ae950-b9d6-4dac-b676-891926b1f554")
 		(property "Reference" "J25"
-			(at 146.05 109.2199 90)
+			(at 143.51 111.7599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11315,7 +11449,7 @@
 			)
 		)
 		(property "Value" "Conn_01x05"
-			(at 146.05 111.7599 0)
+			(at 143.51 114.2999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11325,7 +11459,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical"
-			(at 143.51 110.49 0)
+			(at 140.97 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11334,7 +11468,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 143.51 110.49 0)
+			(at 140.97 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11343,7 +11477,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 143.51 110.49 0)
+			(at 140.97 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11370,6 +11504,73 @@
 			(project ""
 				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
 					(reference "J25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 153.67 170.18 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5ade87b3-94d6-4b53-a88f-37a8ecdd8f33")
+		(property "Reference" "#PWR049"
+			(at 153.67 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 153.67 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 153.67 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 153.67 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 153.67 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c30ed108-9023-4e19-a896-d54622821b7e")
+		)
+		(instances
+			(project "electronic"
+				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
+					(reference "#PWR049")
 					(unit 1)
 				)
 			)
@@ -11882,7 +12083,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 138.43 181.61 270)
+		(at 135.89 182.88 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -11891,7 +12092,7 @@
 		(fields_autoplaced yes)
 		(uuid "6cbbc348-f868-4ad0-bd05-4a91c52927e4")
 		(property "Reference" "#PWR039"
-			(at 132.08 181.61 0)
+			(at 129.54 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11900,7 +12101,7 @@
 			)
 		)
 		(property "Value" "Earth"
-			(at 133.35 181.61 0)
+			(at 130.81 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11909,7 +12110,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 138.43 181.61 0)
+			(at 135.89 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11918,7 +12119,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 138.43 181.61 0)
+			(at 135.89 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11927,7 +12128,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"Earth\""
-			(at 138.43 181.61 0)
+			(at 135.89 182.88 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12145,6 +12346,73 @@
 			(project "electronic"
 				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
 					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+12V")
+		(at 152.4 105.41 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "764d2393-dc7a-4383-ae84-b10ddf33cce9")
+		(property "Reference" "#PWR046"
+			(at 152.4 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+12V"
+			(at 152.4 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 152.4 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+12V\""
+			(at 152.4 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8d2bdee4-7a4f-467c-b51f-cae3201970f2")
+		)
+		(instances
+			(project "electronic"
+				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
+					(reference "#PWR046")
 					(unit 1)
 				)
 			)
@@ -12878,7 +13146,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x05")
-		(at 143.51 176.53 0)
+		(at 140.97 177.8 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12886,7 +13154,7 @@
 		(dnp no)
 		(uuid "85fa7825-fa9b-4fcb-b2e0-ac12fff71ec9")
 		(property "Reference" "J28"
-			(at 146.05 175.2599 90)
+			(at 143.51 176.5299 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12895,7 +13163,7 @@
 			)
 		)
 		(property "Value" "Conn_01x05"
-			(at 146.05 177.7999 0)
+			(at 143.51 179.0699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12905,7 +13173,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical"
-			(at 143.51 176.53 0)
+			(at 140.97 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12914,7 +13182,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 143.51 176.53 0)
+			(at 140.97 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12923,7 +13191,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x05, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 143.51 176.53 0)
+			(at 140.97 177.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13565,6 +13833,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 148.59 170.18 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a005f270-7d1c-492e-b4d8-74998e584ca2")
+		(property "Reference" "#PWR047"
+			(at 148.59 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 148.59 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 148.59 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 148.59 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 148.59 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "266b0dd1-1492-40e5-a7e6-90d8235069a7")
+		)
+		(instances
+			(project "electronic"
+				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
+					(reference "#PWR047")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:Earth")
 		(at 267.97 29.21 90)
 		(unit 1)
@@ -13836,7 +14171,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
-		(at 143.51 96.52 0)
+		(at 140.97 99.06 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13844,7 +14179,7 @@
 		(dnp no)
 		(uuid "b40da1bc-bd25-493e-a32a-74c44670c83b")
 		(property "Reference" "J26"
-			(at 146.05 96.5199 90)
+			(at 143.51 99.0599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13853,7 +14188,7 @@
 			)
 		)
 		(property "Value" "Conn_01x04"
-			(at 146.05 99.0599 0)
+			(at 143.51 101.5999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13863,7 +14198,7 @@
 			)
 		)
 		(property "Footprint" "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical"
-			(at 143.51 96.52 0)
+			(at 140.97 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13872,7 +14207,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 143.51 96.52 0)
+			(at 140.97 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13881,7 +14216,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 143.51 96.52 0)
+			(at 140.97 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13905,6 +14240,73 @@
 			(project ""
 				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
 					(reference "J26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 151.13 170.18 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b43e62f3-f208-4078-9bc8-421ef1fa0352")
+		(property "Reference" "#PWR048"
+			(at 151.13 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 151.13 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 151.13 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 151.13 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 151.13 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a5ebf0ab-22a8-4601-abd0-9df98e70a5bf")
+		)
+		(instances
+			(project "electronic"
+				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
+					(reference "#PWR048")
 					(unit 1)
 				)
 			)
@@ -15111,6 +15513,79 @@
 			(project "electronic"
 				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
 					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 151.13 175.26 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d68317c5-3e6d-43c1-8289-b5a1023938f3")
+		(property "Reference" "J30"
+			(at 149.606 178.054 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Screw_Terminal_01x03"
+			(at 156.21 176.5299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical"
+			(at 151.13 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 151.13 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 151.13 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "be56cb85-0292-49b9-bbd2-0e0e6dbbc10e")
+		)
+		(pin "2"
+			(uuid "9f0875e2-eb31-45e8-aeeb-4f74ee6ac414")
+		)
+		(pin "1"
+			(uuid "968eb8a9-49d6-43be-9053-fae29d3253b7")
+		)
+		(instances
+			(project "electronic"
+				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
+					(reference "J30")
 					(unit 1)
 				)
 			)
@@ -16411,6 +16886,79 @@
 			(project "electronic"
 				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
 					(reference "D8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 149.86 110.49 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fa16f557-ea1f-4779-9758-6630c663fcc6")
+		(property "Reference" "J29"
+			(at 148.336 113.284 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Screw_Terminal_01x03"
+			(at 154.94 111.7599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical"
+			(at 149.86 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 149.86 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 149.86 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "97614ed6-139c-47a5-b3ea-8d004b93d087")
+		)
+		(pin "2"
+			(uuid "6977542a-a1e3-413d-a138-b8b8a1f72347")
+		)
+		(pin "1"
+			(uuid "bcb8c65f-2219-4313-9a10-db72a5b0c366")
+		)
+		(instances
+			(project "electronic"
+				(path "/96aa2b71-21ff-4d42-8f7c-5774f369d3f1"
+					(reference "J29")
 					(unit 1)
 				)
 			)
