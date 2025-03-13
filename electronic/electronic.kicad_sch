@@ -4588,6 +4588,10 @@
 		(uuid "527448e7-42a8-4bf3-9214-5f67730cb523")
 	)
 	(no_connect
+		(at 240.03 88.9)
+		(uuid "53a33c9b-6971-4cd4-a589-02de3b4eac5f")
+	)
+	(no_connect
 		(at 189.23 86.36)
 		(uuid "55616dd9-6283-4cae-a68a-a47f637a06c6")
 	)
@@ -4604,12 +4608,12 @@
 		(uuid "724c5932-2e2a-4b01-ab22-c0fdb9553721")
 	)
 	(no_connect
-		(at 240.03 121.92)
-		(uuid "73e337a7-74c2-424d-9dfb-c414900d3926")
-	)
-	(no_connect
 		(at 240.03 142.24)
 		(uuid "7cf9aad8-cc5d-481d-8a4e-b2876dde446d")
+	)
+	(no_connect
+		(at 240.03 86.36)
+		(uuid "89da0067-d28f-4d84-88ec-a5d6984c788e")
 	)
 	(no_connect
 		(at 41.91 113.03)
@@ -4642,10 +4646,6 @@
 	(no_connect
 		(at 240.03 127)
 		(uuid "edbe1e63-d85d-420a-ae9f-d2df7b32fd19")
-	)
-	(no_connect
-		(at 240.03 124.46)
-		(uuid "ef9e07e8-f493-48f9-957c-abe9d40fd0e9")
 	)
 	(no_connect
 		(at 240.03 66.04)
@@ -6453,28 +6453,6 @@
 			)
 		)
 	)
-	(global_label "DRVI202"
-		(shape input)
-		(at 240.03 88.9 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "0e05e3d5-fb8e-46c4-8496-03afe66eb734")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 250.8771 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "DRVO302"
 		(shape input)
 		(at 87.63 163.83 0)
@@ -7016,6 +6994,28 @@
 		(uuid "4a14cd29-9c0d-4a6c-8207-1cbf5c641c00")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 48.26 24.592 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "DRVI202"
+		(shape input)
+		(at 240.03 124.46 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4abfb62b-3362-42de-b21e-c2a7850b7847")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 250.8771 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7637,28 +7637,6 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "DRVI102"
-		(shape input)
-		(at 240.03 86.36 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "85948262-0d2d-43e3-a9dd-52d040ef439b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 250.8771 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
 				(hide yes)
 			)
 		)
@@ -8341,6 +8319,28 @@
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "DRVI102"
+		(shape input)
+		(at 240.03 121.92 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c82ac2fa-a994-49ff-8d71-90ff4f6f74c0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 250.8771 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
 				(hide yes)
 			)
 		)
