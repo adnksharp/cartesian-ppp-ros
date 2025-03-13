@@ -485,7 +485,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "../img/",
+      "plot": "/home/akey/Unix/projects/design/electronic/gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "../src/sw/PCBZero.stl",
