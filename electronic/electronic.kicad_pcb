@@ -46,8 +46,8 @@
 		(allow_soldermask_bridges_in_footprints no)
 		(tenting front back)
 		(pcbplotparams
-			(layerselection 0x00000000_00000000_55555555_5755f5ff)
-			(plot_on_all_layers_selection 0x00000000_00000000_00000000_00000000)
+			(layerselection 0x00000000_00000000_55555555_55555551)
+			(plot_on_all_layers_selection 0x00000000_00000000_0000000a_aa00aaaf)
 			(disableapertmacros no)
 			(usegerberextensions no)
 			(usegerberattributes yes)
@@ -71,7 +71,7 @@
 			(dxfusepcbnewfont yes)
 			(psnegative no)
 			(psa4output no)
-			(plot_black_and_white yes)
+			(plot_black_and_white no)
 			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
@@ -79,11 +79,11 @@
 			(sketchdnponfab yes)
 			(crossoutdnponfab yes)
 			(subtractmaskfromsilk no)
-			(outputformat 1)
+			(outputformat 5)
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "/home/akey/Unix/projects/design/electronic/gerber/")
+			(outputdirectory "../img/")
 		)
 	)
 	(net 0 "")
@@ -1308,6 +1308,17 @@
 			)
 			(rotate
 				(xyz 0 0 0)
+			)
+		)
+		(model "${KIPRJMOD}/3D lib/OF-SMD5730NW--3DModel-STEP-510211.STEP"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -0)
 			)
 		)
 	)
@@ -2655,6 +2666,17 @@
 			)
 			(rotate
 				(xyz 0 0 0)
+			)
+		)
+		(model "${KIPRJMOD}/3D lib/OF-SMD5730NW--3DModel-STEP-510211.STEP"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -0)
 			)
 		)
 	)
@@ -4035,6 +4057,17 @@
 			)
 			(rotate
 				(xyz 0 0 0)
+			)
+		)
+		(model "${KIPRJMOD}/3D lib/OF-SMD5730NW--3DModel-STEP-510211.STEP"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -0)
 			)
 		)
 	)
@@ -6066,6 +6099,17 @@
 			(uuid "fca96696-4913-4974-b89e-422addf889ad")
 		)
 		(embedded_fonts no)
+		(model "${KIPRJMOD}/3D lib/ESP32-S3-DevKitC-1-N16R8V--3DModel-STEP-269445.STEP"
+			(offset
+				(xyz 11.5 -30 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -0)
+			)
+		)
 	)
 	(footprint "Connector_JST:JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical"
 		(layer "F.Cu")
@@ -7901,6 +7945,17 @@
 			)
 			(rotate
 				(xyz 0 0 0)
+			)
+		)
+		(model "${KIPRJMOD}/3D lib/OF-SMD5730NW--3DModel-STEP-510211.STEP"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz -90 -0 -0)
 			)
 		)
 	)
