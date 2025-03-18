@@ -1,4 +1,4 @@
-# cartesian-ppp-ros
+# Cartesian Robot (PPP) ROS
 Robot cartesiano de 3 DOF
 
 ## Requisitos
