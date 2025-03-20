@@ -1,4 +1,7 @@
 # Cartesian Robot (PPP) ROS
+
+![](https://i.imgur.com/6WNxQ1n.png)
+
 Robot cartesiano de 3 DOF
 
 ## Requisitos
