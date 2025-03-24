@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="URDF.SLDASM">
+  <link
+    name="Link_Base">
+    <inertial>
+      <origin
+        xyz="0.0114159508946672 0.175577206152015 0.00188434605031392"
+        rpy="0 0 0" />
+      <mass
+        value="8.67596987352087" />
+      <inertia
+        ixx="0.299819303764689"
+        ixy="-0.00525325844755418"
+        ixz="0.0119696542324205"
+        iyy="0.372411485126987"
+        iyz="-0.010467275298787"
+        izz="0.30471576885987" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF.SLDASM/meshes/Link_Base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF.SLDASM/meshes/Link_Base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Link_X">
+    <inertial>
+      <origin
+        xyz="-0.00188434605031393 0.175577206152015 0.0288296448289109"
+        rpy="0 0 0" />
+      <mass
+        value="8.67596987352087" />
+      <inertia
+        ixx="0.30471576885987"
+        ixy="0.010467275298787"
+        ixz="-0.0119696542324205"
+        iyy="0.372411485126987"
+        iyz="-0.00525325844755414"
+        izz="0.299819303764689" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF.SLDASM/meshes/Link_X.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF.SLDASM/meshes/Link_X.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J1"
+    type="prismatic">
+    <origin
+      xyz="-0.017414 0 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="Link_Base" />
+    <child
+      link="Link_X" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.01"
+      friction="0.01" />
+  </joint>
+  <link
+    name="Link_Z">
+    <inertial>
+      <origin
+        xyz="0.0850555171017934 0.175577206152015 0.00991818358297185"
+        rpy="0 0 0" />
+      <mass
+        value="8.67596987352087" />
+      <inertia
+        ixx="0.30471576885987"
+        ixy="0.010467275298787"
+        ixz="-0.0119696542324205"
+        iyy="0.372411485126987"
+        iyz="-0.00525325844755414"
+        izz="0.299819303764689" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF.SLDASM/meshes/Link_Z.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF.SLDASM/meshes/Link_Z.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="prismatic">
+    <origin
+      xyz="-0.08694 0 0.018911"
+      rpy="0 0 0" />
+    <parent
+      link="Link_X" />
+    <child
+      link="Link_Z" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.01"
+      friction="0.01" />
+  </joint>
+  <link
+    name="Link_Y">
+    <inertial>
+      <origin
+        xyz="0.0565709384857237 0.073229775350901 0.00991818358297399"
+        rpy="0 0 0" />
+      <mass
+        value="8.67596987352087" />
+      <inertia
+        ixx="0.30471576885987"
+        ixy="0.0104672752987869"
+        ixz="-0.0119696542324205"
+        iyy="0.372411485126987"
+        iyz="-0.00525325844755413"
+        izz="0.299819303764689" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF.SLDASM/meshes/Link_Y.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://URDF.SLDASM/meshes/Link_Y.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J3"
+    type="prismatic">
+    <origin
+      xyz="0.028485 0.10235 0"
+      rpy="0 0 0" />
+    <parent
+      link="Link_Z" />
+    <child
+      link="Link_Y" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+    <dynamics
+      damping="0.01"
+      friction="0.01" />
+  </joint>
+</robot>
