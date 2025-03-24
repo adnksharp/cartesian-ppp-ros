@@ -50,7 +50,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        SetEnvironmentVariable(name='GAZEBO_MODEL_PATH', value=meshes_path + ':' + '$GAZEBO_MODEL_PATH'),
         gazebo,
         spawn,
         publish
