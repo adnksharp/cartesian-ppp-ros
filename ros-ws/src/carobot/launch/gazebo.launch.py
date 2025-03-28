@@ -7,6 +7,7 @@ from ament_index_python.packages import get_package_share_directory
 def generate_launch_description():
     package_name = 'carobot'
     urdf_file_name = 'model.urdf'
+    controllers_file_name = 'control.yaml' # Nombre del archivo de controladores
 
     urdf_path = os.path.join(
         get_package_share_directory(package_name),
@@ -14,9 +15,10 @@ def generate_launch_description():
         urdf_file_name
     )
 
-    meshes_path = os.path.join(
+    controllers_path = os.path.join( # Ruta del archivo de controladores
         get_package_share_directory(package_name),
-        'meshes'
+        'config',
+        controllers_file_name
     )
 
     gazebo = ExecuteProcess(
@@ -29,6 +31,7 @@ def generate_launch_description():
         executable='create',
         arguments=[
             '-name', 'CartesianRobot',
+            '-topic', '/robot_description',
             '-x', '0.0',
             '-y', '0.0',
             '-z', '0.0',
@@ -49,8 +52,48 @@ def generate_launch_description():
         output='screen'
     )
 
+    controller_manager = Node(
+        package="ros2_control",
+        executable="controller_manager",
+        parameters=[urdf_path, controllers_path], # Se usa controllers_path
+        output="screen",
+    )
+
+    joint_state_broadcaster = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster", "--controller-manager", "/controller_manager"],
+        output="screen",
+    )
+
+    J1_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["J1_position_controller", "--controller-manager", "/controller_manager"],
+        output="screen",
+    )
+
+    J2_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["J2_position_controller", "--controller-manager", "/controller_manager"],
+        output="screen",
+    )
+
+    J3_controller = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["J3_position_controller", "--controller-manager", "/controller_manager"],
+        output="screen",
+    )
+
     return LaunchDescription([
         gazebo,
         spawn,
-        publish
+        #publish,
+        #controller_manager, # Se agregan los controladores
+        #joint_state_broadcaster,
+        #J1_controller,
+        #J2_controller,
+        #J3_controller
     ])

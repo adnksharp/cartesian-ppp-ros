@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot
   name="CartesianRobot">
+  <link name="world"/>
+    <joint name="world_to_base" type="fixed">
+        <parent link="world"/>
+        <child link="Link_Base"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
   <link
     name="Link_Base">
     <inertial>
@@ -23,7 +29,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/Link_Base.STL" />
+          filename="file:///home/akey/Unix/projects/design/ros-ws/src/carobot/urdf/meshes/Base.STL" />
       </geometry>
       <material
         name="">
@@ -37,7 +43,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/Link_Base.STL" />
+          filename="file:///home/akey/Unix/projects/design/ros-ws/src/carobot/urdf/meshes/Base.STL" />
       </geometry>
     </collision>
   </link>
@@ -63,7 +69,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/Link_X.STL" />
+          filename="file:///home/akey/Unix/projects/design/ros-ws/src/carobot/urdf/meshes/X.STL" />
       </geometry>
       <material
         name="">
@@ -77,7 +83,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/Link_X.STL" />
+          filename="file:///home/akey/Unix/projects/design/ros-ws/src/carobot/urdf/meshes/X.STL" />
       </geometry>
     </collision>
   </link>
@@ -102,6 +108,16 @@
       damping="0.01"
       friction="0.1" />
   </joint>
+  <transmission name="trans_J1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_J1">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="Link_Z">
     <inertial>
@@ -124,7 +140,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/Link_Z.STL" />
+          filename="file:///home/akey/Unix/projects/design/ros-ws/src/carobot/urdf/meshes/Z.STL" />
       </geometry>
       <material
         name="">
@@ -138,7 +154,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/Link_Z.STL" />
+          filename="file:///home/akey/Unix/projects/design/ros-ws/src/carobot/urdf/meshes/Z.STL" />
       </geometry>
     </collision>
   </link>
@@ -163,6 +179,16 @@
       damping="0.01"
       friction="0.1" />
   </joint>
+  <transmission name="trans_J2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_J2">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
   <link
     name="Link_Y">
     <inertial>
@@ -185,7 +211,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/Link_Y.STL" />
+          filename="file:///home/akey/Unix/projects/design/ros-ws/src/carobot/urdf/meshes/Y.STL" />
       </geometry>
       <material
         name="">
@@ -199,7 +225,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="meshes/Link_Y.STL" />
+          filename="file:///home/akey/Unix/projects/design/ros-ws/src/carobot/urdf/meshes/Y.STL" />
       </geometry>
     </collision>
   </link>
@@ -224,4 +250,14 @@
       damping="0.01"
       friction="0.1" />
   </joint>
+  <transmission name="trans_J3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="J3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor_J3">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
 </robot>
