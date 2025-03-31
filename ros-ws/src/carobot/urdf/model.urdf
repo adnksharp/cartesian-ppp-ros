@@ -65,7 +65,7 @@
     </inertial>
     <visual>
       <origin
-      	xyz="-0.104 -0.3215 -0.0275"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -79,7 +79,7 @@
     </visual>
     <collision>
       <origin
-      	xyz="-0.104 -0.3215 -0.0275"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -91,7 +91,7 @@
     name="J1"
     type="prismatic">
     <origin
-      xyz="0.06 0.104 0.3215"
+      xyz="-0.017414 0 0"
       rpy="1.5708 0 1.5708" />
     <parent
       link="Link_Base" />
@@ -100,8 +100,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.186"
-      upper="0"
+      lower="0"
+      upper="0.5"
       effort="1000"
       velocity="1" />
     <dynamics
@@ -136,7 +136,7 @@
     </inertial>
     <visual>
       <origin
-      	xyz="0.028 -0.361 -0.009"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -150,7 +150,7 @@
     </visual>
     <collision>
       <origin
-      	xyz="0.028 -0.361 -0.009"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -162,8 +162,8 @@
     name="J2"
     type="prismatic">
     <origin
-      xyz="-0.0335 0.0395 0.0005"
-      rpy="0 0 0" />a
+      xyz="-0.08694 0 0.018911"
+      rpy="0 0 0" />
     <parent
       link="Link_X" />
     <child
@@ -171,8 +171,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-0.195"
-      upper="0"
+      lower="0"
+      upper="0.5"
       effort="1000"
       velocity="0" />
     <dynamics
@@ -207,7 +207,7 @@
     </inertial>
     <visual>
       <origin
-      	xyz="0.0558 -0.261 -0.0386"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -221,7 +221,7 @@
     </visual>
     <collision>
       <origin
-      	xyz="0.0558 -0.261 -0.0386"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -233,7 +233,7 @@
     name="J3"
     type="prismatic">
     <origin
-      xyz="0.0006 0 0.0295"
+      xyz="0.028485 0.10235 0"
       rpy="0 0 0" />
     <parent
       link="Link_Z" />
@@ -243,7 +243,7 @@
       xyz="0 1 0" />
     <limit
       lower="0"
-      upper="0.224"
+      upper="0.5"
       effort="1000"
       velocity="0" />
     <dynamics

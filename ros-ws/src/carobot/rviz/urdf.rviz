@@ -1,164 +1,35 @@
 Panels:
   - Class: rviz_common/Displays
-    Help Height: 87
     Name: Displays
-    Property Tree Widget:
-      Expanded:
-        - /Global Options1
-        - /TF1
-      Splitter Ratio: 0.5
-    Tree Height: 374
   - Class: rviz_common/Views
-    Expanded:
-      - /Current View1
     Name: Views
-    Splitter Ratio: 0.5
 Visualization Manager:
-  Class: ""
   Displays:
-    - Alpha: 0.5
-      Cell Size: 1
-      Class: rviz_default_plugins/Grid
-      Color: 160; 160; 164
-      Enabled: true
-      Line Style:
-        Line Width: 0.029999999329447746
-        Value: Lines
+    - Class: rviz_default_plugins/Grid
       Name: Grid
-      Normal Cell Count: 0
-      Offset:
-        X: 0
-        Y: 0
-        Z: 0
-      Plane: XY
-      Plane Cell Count: 10
-      Reference Frame: <Fixed Frame>
       Value: true
-    - Alpha: 1
+    - Alpha: 0.8
       Class: rviz_default_plugins/RobotModel
-      Collision Enabled: false
-      Description File: ""
-      Description Source: Topic
       Description Topic:
-        Depth: 5
-        Durability Policy: Volatile
-        History Policy: Keep Last
-        Reliability Policy: Reliable
         Value: /robot_description
-      Enabled: true
-      Links:
-        All Links Enabled: true
-        Expand Joint Details: false
-        Expand Link Details: false
-        Expand Tree: false
-        Link Tree Style: Links in Alphabetic Order
-        Link_Base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Link_X:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Link_Y:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        Link_Z:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        world:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-      Mass Properties:
-        Inertia: false
-        Mass: false
       Name: RobotModel
-      TF Prefix: ""
-      Update Interval: 0
       Value: true
-      Visual Enabled: true
     - Class: rviz_default_plugins/TF
-      Enabled: true
-      Filter (blacklist): ""
-      Filter (whitelist): ""
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-        Link_Base:
-          Value: true
-        Link_X:
-          Value: true
-        Link_Y:
-          Value: true
-        Link_Z:
-          Value: true
-        world:
-          Value: true
-      Marker Scale: 0.3000000059604645
       Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: false
-      Tree:
-        world:
-          Link_Base:
-            Link_X:
-              Link_Z:
-                Link_Y:
-                  {}
-      Update Interval: 0
       Value: true
-  Enabled: true
   Global Options:
-    Background Color: 48; 48; 48
     Fixed Frame: Link_Base
-    Frame Rate: 30
-  Name: root
   Tools:
     - Class: rviz_default_plugins/MoveCamera
-  Transformation:
-    Current:
-      Class: rviz_default_plugins/TF
   Value: true
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.7000000476837158
-      Enable Stereo Rendering:
-        Stereo Eye Separation: 0.05999999865889549
-        Stereo Focal Distance: 1
-        Swap Stereo Eyes: false
-        Value: false
-      Focal Point:
-        X: 0
-        Y: 0
-        Z: 0
-      Focal Shape Fixed Size: true
-      Focal Shape Size: 0.05000000074505806
-      Invert Z Axis: false
+      Distance: 1.7
       Name: Current View
-      Near Clip Distance: 0.009999999776482582
-      Pitch: 0.33000001311302185
-      Target Frame: <Fixed Frame>
+      Pitch: 0.33
       Value: Orbit (rviz)
       Yaw: 5.5
-    Saved: ~
 Window Geometry:
-  Displays:
-    collapsed: false
-  Height: 1010
-  Hide Left Dock: false
-  Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000020e00000399fc0200000002fb000000100044006900730070006c006100790073010000002e0000021e0000010101000003fb0000000a00560069006500770073010000024d0000017a000000db01000003000001b10000039900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
-  Views:
-    collapsed: false
-  Width: 960
-  X: 960
-  Y: 35
+  Height: 800
+  Width: 1200
