@@ -1,7 +1,8 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch_ros.actions import Node
+from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description() -> LaunchDescription:
@@ -37,6 +38,24 @@ def generate_launch_description() -> LaunchDescription:
         default_value=default_model_path,
         description='Path to robot urdf file relative to urdf_tutorial package')
     ld.add_action(model_arg)
+
+    ld.add_action(DeclareLaunchArgument(
+        name='jsp_gui',
+        default_value='true',
+        choices=['true', 'false'],
+        description='Flag to enable/disable the GUI for joint state publisher'
+    ))
+    ld.add_action(Node(
+        package='joint_state_publisher',
+        executable='joint_state_publisher',
+        condition=UnlessCondition(LaunchConfiguration('jsp_gui'))
+    ))
+
+    ld.add_action(Node(
+        package='joint_state_publisher_gui',
+        executable='joint_state_publisher_gui',
+        condition=IfCondition(LaunchConfiguration('jsp_gui'))
+    ))
 
     # Incluir el lanzamiento de urdf_launch
     ild: IncludeLaunchDescription = IncludeLaunchDescription(
