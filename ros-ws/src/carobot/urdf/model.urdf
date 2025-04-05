@@ -260,4 +260,15 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+  <plugin
+    filename="gz-sim-joint-state-publisher-system"
+    name="gz::sim::systems::JointStatePublisher">
+  </plugin>
+
+  <plugin
+    filename="gz-sim-joint-position-controller-system"
+    name="gz::sim::systems::JointPositionController">
+    <joint_name>J1</joint_name>
+	<topic>world/empty/model/carobot/joint_states/J1</topic>
+  </plugin>
 </robot>

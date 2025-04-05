@@ -45,12 +45,20 @@ def generate_launch_description() -> LaunchDescription:
         choices=['true', 'false'],
         description='Flag to enable/disable the GUI for joint state publisher'
     ))
+
+    # Nodo de Joint State Publisher
+    """
+        J1: Junta prismatica de -0.5 a 0
+        J2: Junta prismatica de -0.5 a 0
+        J3: Junta prismatica de 0 a 0.5
+    """
     ld.add_action(Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
         condition=UnlessCondition(LaunchConfiguration('jsp_gui'))
     ))
 
+    # Nodo de Joint State Publisher GUI
     ld.add_action(Node(
         package='joint_state_publisher_gui',
         executable='joint_state_publisher_gui',
@@ -66,5 +74,34 @@ def generate_launch_description() -> LaunchDescription:
             'rviz_config': LaunchConfiguration('rvizconfig'),
             'jsp_gui': LaunchConfiguration('gui')}.items())
     ld.add_action(ild)
+
+    # Agregar nodo de gz_create
+    gz_create_node = Node(
+        package='ros_gz_sim',
+        executable='create',
+        name='spawner',
+        output='screen',
+        arguments=[
+            '-name', 'carobot', 
+            '-topic', '/robot_description',
+        ]
+    )
+
+    ld.add_action(gz_create_node)
+
+    # Agregar nodo de gz_create
+    gz_bridge_node = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        name='gz_bridge',
+        output='screen',
+        arguments=[
+            '/world/empty/model/carobot/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model',
+            '/world/empty/model/carobot/joint_states/J1@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/carobot/joint_states/J2@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/carobot/joint_states/J3@std_msgs/msg/Float64@gz.msgs.Double',
+        ],
+    )
+    ld.add_action(gz_bridge_node)
 
     return ld
