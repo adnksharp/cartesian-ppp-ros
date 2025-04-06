@@ -103,7 +103,7 @@
       lower="-0.186"
       upper="0"
       effort="1000"
-      velocity="100" />
+      velocity="2" />
     <dynamics
       damping="0.01"
       friction="0.1" />
@@ -115,7 +115,7 @@
     </joint>
     <actuator name="motor_J1">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-	  <mechanicalReduction>2</mechanicalReduction>
+	  <mechanicalReduction>8</mechanicalReduction>
     </actuator>
   </transmission>
   <link
@@ -174,7 +174,7 @@
       lower="-0.184"
       upper="0"
       effort="1000"
-      velocity="10" />
+      velocity="2" />
     <dynamics
       damping="0.01"
       friction="0.1" />
@@ -186,17 +186,17 @@
     </joint>
     <actuator name="motor_J2">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      <mechanicalReduction>1</mechanicalReduction>
+      <mechanicalReduction>8</mechanicalReduction>
     </actuator>
   </transmission>
   <link
     name="Link_Y">
     <inertial>
       <origin
-        xyz="0.0565709384857237 0.073229775350901 0.00991818358297399"
+        xyz="0.1565709384857237 0.073229775350901 0.00991818358297399"
         rpy="0 0 0" />
       <mass
-        value="0.0867596987352087" />
+        value="0.04867596987352087" />
       <inertia
         ixx="0.30471576885987"
         ixy="0.0104672752987869"
@@ -244,11 +244,11 @@
     <limit
       lower="0"
       upper="0.224"
-      effort="1000"
-      velocity="100" />
+      effort="5000"
+      velocity="2" />
     <dynamics
       damping="0.01"
-      friction="0.01" />
+      friction="0.1" />
   </joint>
   <transmission name="trans_J3">
     <type>transmission_interface/SimpleTransmission</type>
@@ -257,36 +257,36 @@
     </joint>
     <actuator name="motor_J3">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
-      <mechanicalReduction>1000</mechanicalReduction>
+      <mechanicalReduction>8</mechanicalReduction>
     </actuator>
   </transmission>
   <gazebo>
   	  <plugin
         filename="gz-sim-joint-position-controller-system"
         name="gz::sim::systems::JointPositionController">
-        <joint_name>J3</joint_name>
-        <topic>world/empty/model/carobot/joint_states/J3</topic>
-        <p_gain>1.7</p_gain>
-        <i_gain>0.022</i_gain>
-        <d_gain>0.1</d_gain>
-	  </plugin>
-  	  <plugin
-        filename="gz-sim-joint-position-controller-system"
-        name="gz::sim::systems::JointPositionController">
         <joint_name>J1</joint_name>
         <topic>world/empty/model/carobot/joint_states/J1</topic>
-        <p_gain>1.7</p_gain>
-        <i_gain>0.022</i_gain>
-        <d_gain>0.1</d_gain>
+        <p_gain>1.8</p_gain>
+        <i_gain>0.015</i_gain>
+        <d_gain>1.4</d_gain>
 	  </plugin>
   	  <plugin
         filename="gz-sim-joint-position-controller-system"
         name="gz::sim::systems::JointPositionController">
         <joint_name>J2</joint_name>
         <topic>world/empty/model/carobot/joint_states/J2</topic>
-        <p_gain>1.7</p_gain>
-        <i_gain>0.022</i_gain>
-        <d_gain>0.1</d_gain>
+        <p_gain>5.4</p_gain>
+        <i_gain>0.033</i_gain>
+        <d_gain>4.6</d_gain>
+	  </plugin>
+  	  <plugin
+        filename="gz-sim-joint-position-controller-system"
+        name="gz::sim::systems::JointPositionController">
+        <joint_name>J3</joint_name>
+        <topic>world/empty/model/carobot/joint_states/J3</topic>
+        <p_gain>5.4</p_gain>
+        <i_gain>0.033</i_gain>
+        <d_gain>4.6</d_gain>
 	  </plugin>
   </gazebo>
 </robot>
