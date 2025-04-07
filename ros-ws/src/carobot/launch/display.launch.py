@@ -1,5 +1,5 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, ExecuteProcess
 from launch.conditions import IfCondition, UnlessCondition
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
 from launch_ros.actions import Node
@@ -47,11 +47,6 @@ def generate_launch_description() -> LaunchDescription:
     ))
 
     # Nodo de Joint State Publisher
-    """
-        J1: Junta prismatica de -0.5 a 0
-        J2: Junta prismatica de -0.5 a 0
-        J3: Junta prismatica de 0 a 0.5
-    """
     ld.add_action(Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
@@ -89,7 +84,7 @@ def generate_launch_description() -> LaunchDescription:
 
     ld.add_action(gz_create_node)
 
-    # Agregar nodo de gz_create
+    # Agregar nodo de gz_bridge
     gz_bridge_node = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
@@ -103,5 +98,20 @@ def generate_launch_description() -> LaunchDescription:
         ],
     )
     ld.add_action(gz_bridge_node)
+
+    # Agregar nodo conector entre joint_states y gz
+    ld.add_action(Node(
+        package='carobot',
+        executable='republisher.py',
+        name='joint_states_enricher',
+        output='screen',
+    ))
+
+    # Ejecutar gz sim -r -v 4 empty.sdf
+    gz_sim_node = ExecuteProcess(
+        cmd=['gz', 'sim', '-r', '-v', '4', 'empty.sdf'],
+        output='screen'
+    )
+    ld.add_action(gz_sim_node)
 
     return ld

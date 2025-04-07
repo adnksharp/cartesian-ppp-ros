@@ -11,11 +11,11 @@
     name="Link_Base">
     <inertial>
       <origin
-        xyz="0.0114159508946672 0.175577206152015 0.00188434605031392"
+        xyz="0.001 0.01 0.16"
         rpy="0 0 0" />
       <mass
-        value="8.67596987352087" />
-      <inertia
+        value="8.09" />
+	  <inertia
         ixx="0.299819303764689"
         ixy="-0.00525325844755418"
         ixz="0.0119696542324205"
@@ -51,11 +51,11 @@
     name="Link_X">
     <inertial>
       <origin
-        xyz="-0.00188434605031393 0.175577206152015 0.0288296448289109"
+        xyz="-0.06 0.02 0.03"
         rpy="0 0 0" />
       <mass
-        value="0.867596987352087" />
-      <inertia
+        value="0.32" />
+	  <inertia
         ixx="0.30471576885987"
         ixy="0.010467275298787"
         ixz="-0.0119696542324205"
@@ -122,7 +122,7 @@
     name="Link_Z">
     <inertial>
       <origin
-        xyz="0.0850555171017934 0.175577206152015 0.00991818358297185"
+        xyz="-0.01 0.01 0.02"
         rpy="0 0 0" />
       <mass
         value="0.0867596987352087" />
@@ -193,10 +193,10 @@
     name="Link_Y">
     <inertial>
       <origin
-        xyz="0.1565709384857237 0.073229775350901 0.00991818358297399"
+        xyz="-0.01 0.07 0.00"
         rpy="0 0 0" />
       <mass
-        value="0.04867596987352087" />
+		value="0.21" />
       <inertia
         ixx="0.30471576885987"
         ixy="0.0104672752987869"
@@ -248,7 +248,7 @@
       velocity="2" />
     <dynamics
       damping="0.01"
-      friction="0.1" />
+      friction="0.91" />
   </joint>
   <transmission name="trans_J3">
     <type>transmission_interface/SimpleTransmission</type>
