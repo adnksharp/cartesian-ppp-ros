@@ -12,13 +12,13 @@ def generate_launch_description() -> LaunchDescription:
     pkg_share = FindPackageShare(package='carobot')
     
     # Construir rutas de archivos
-    default_model_path = PathJoinSubstitution(['urdf', 'model.urdf'])
+    default_model_path = PathJoinSubstitution([pkg_share, 'urdf', 'model.urdf'])
     default_rviz_path = PathJoinSubstitution([pkg_share, 'rviz', 'urdf.rviz'])
 
     # Argumento para habilitar/deshabilitar GUI
     gui_arg = DeclareLaunchArgument(
         name='gui',
-        default_value='true',
+        default_value='false',
         choices=['true', 'false'],
         description='Flag to enable/disable the GUI'
     )
@@ -28,7 +28,7 @@ def generate_launch_description() -> LaunchDescription:
     rviz_arg = DeclareLaunchArgument(
         name='rvizconfig',
         default_value=default_rviz_path,
-        description='Path to the RViz config file relative to the package'
+        description='Path to the RViz configuration file'
     )
     ld.add_action(rviz_arg)
 
@@ -36,29 +36,17 @@ def generate_launch_description() -> LaunchDescription:
     model_arg: DeclareLaunchArgument = DeclareLaunchArgument(
         name='model',
         default_value=default_model_path,
-        description='Path to robot urdf file relative to urdf_tutorial package')
+        description='Path to the URDF model file'
+    )
     ld.add_action(model_arg)
 
-    ld.add_action(DeclareLaunchArgument(
-        name='jsp_gui',
-        default_value='true',
-        choices=['true', 'false'],
-        description='Flag to enable/disable the GUI for joint state publisher'
-    ))
-
-    # Nodo de Joint State Publisher
-    ld.add_action(Node(
-        package='joint_state_publisher',
-        executable='joint_state_publisher',
-        condition=UnlessCondition(LaunchConfiguration('jsp_gui'))
-    ))
-
-    # Nodo de Joint State Publisher GUI
-    ld.add_action(Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui',
-        condition=IfCondition(LaunchConfiguration('jsp_gui'))
-    ))
+    # Topico de conexión entre gazebo y ROS2
+    jsp_node = Node(
+        package='carobot',
+        executable='pos_get.py',
+        name='robot_position_publisher',
+    )
+    ld.add_action(jsp_node)
 
     # Incluir el lanzamiento de urdf_launch
     ild: IncludeLaunchDescription = IncludeLaunchDescription(
@@ -67,7 +55,10 @@ def generate_launch_description() -> LaunchDescription:
             'urdf_package': 'carobot',
             'urdf_package_path': LaunchConfiguration('model'),
             'rviz_config': LaunchConfiguration('rvizconfig'),
-            'jsp_gui': LaunchConfiguration('gui')}.items())
+            'jsp_gui': LaunchConfiguration('gui'),
+            'use_gui': 'false',
+        }.items(),
+    )
     ld.add_action(ild)
 
     # Agregar nodo de gz_create
@@ -88,17 +79,21 @@ def generate_launch_description() -> LaunchDescription:
     gz_bridge_node = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
-        name='gz_bridge',
+        name='robot_gz_bridge',
         output='screen',
         arguments=[
-            '/world/empty/model/carobot/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model',
-            '/world/empty/model/carobot/joint_states/J1@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/model/carobot/joint_states/J2@std_msgs/msg/Float64@gz.msgs.Double',
-            '/world/empty/model/carobot/joint_states/J3@std_msgs/msg/Float64@gz.msgs.Double',
+            '/world/empty/model/carobot/joint/prismatic_0_joint/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
+            '/world/empty/model/carobot/joint/prismatic_0_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
+            '/world/empty/model/carobot/joint/prismatic_1_joint/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
+            '/world/empty/model/carobot/joint/prismatic_1_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
+            '/world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
+            '/world/empty/model/carobot/joint/prismatic_2_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
+
         ],
     )
     ld.add_action(gz_bridge_node)
 
+    """
     # Agregar nodo conector entre joint_states y gz
     ld.add_action(Node(
         package='carobot',
@@ -106,6 +101,7 @@ def generate_launch_description() -> LaunchDescription:
         name='joint_states_enricher',
         output='screen',
     ))
+    """
 
     # Ejecutar gz sim -r -v 4 empty.sdf
     gz_sim_node = ExecuteProcess(

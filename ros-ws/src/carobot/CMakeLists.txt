@@ -17,7 +17,8 @@ install(
 )
 
 install(PROGRAMS
-	src/republisher.py
+	src/pos_get.py
+	src/pos_put.py
 	DESTINATION lib/${PROJECT_NAME}
 )
 
