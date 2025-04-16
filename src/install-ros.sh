@@ -79,16 +79,16 @@ if [ "$(echo $DIST | grep -E 'Ubuntu|Debian|Linux Mint')" ]; then
 	printf "${MSG_GZ_INSTALL}"
 	if [[ "$ROS_DIST" == "rolling" ]]; then
 		printf "ionic   "
-		#apt-get install gz-ionic -y > /dev/null 2>&1
+		apt-get install gz-ionic -y > /dev/null 2>&1
 	elif [[ "$ROS_DIST" == "jazzy" ]]; then
 		printf "harmonic"
-		#apt-get install gz-harmonic -y > /dev/null 2>&1
+		apt-get install gz-harmonic -y > /dev/null 2>&1
 	elif [[ "$ROS_DIST" == "humble" ]]; then
 		printf "fortress"
-		#apt-get install ignition-fortress -y > /dev/null 2>&1
+		apt-get install ignition-fortress -y > /dev/null 2>&1
 	else
 		printf "citadel "
-		#apt-get install ignition-citadel -y > /dev/null 2>&1
+		apt-get install ignition-citadel -y > /dev/null 2>&1
 	fi
 	printf "${MSG_TAB_GZ}"
 
