@@ -3,12 +3,6 @@ import rclpy
 from rclpy.node import Node
 from std_msgs.msg import Float64
 
-lim = [
-        [-0.186, 0],
-        [-0.184, 0],
-        [0, 0.224]
-    ]
-
 class JointStatePublisher(Node):
     def __init__(self):
         super().__init__('robot_joint_position_publisher')
@@ -34,9 +28,8 @@ class JointStatePublisher(Node):
             pos = list(map(float, input_srt.split(',')))
             if len(pos) == 3:
                 for i in range(3):
-                    if pos[i] >= lim[i][0] and pos[i] <= lim[i][1]:
-                        msg.data = pos[i]
-                        self.publisher[i].publish(msg)
+                    msg.data = pos[i]
+                    self.publisher[i].publish(msg)
                 self.get_logger().info(f'{pos}')
         except:
             pass

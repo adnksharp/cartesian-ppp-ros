@@ -45,7 +45,7 @@
     name="prismatic_0">
     <inertial>
       <origin
-        xyz="-0.06 0.02 0.03"
+        xyz="-0.069 0.02 0.03"
         rpy="0 0 0" />
       <mass
         value="0.32" />
@@ -59,7 +59,7 @@
     </inertial>
     <visual>
       <origin
-      	xyz="-0.104 -0.3215 -0.0275"
+      	xyz="-0.3125 -0.3125 -0.03"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -68,12 +68,12 @@
       <material
         name="">
         <color
-          rgba="0.49 0.12 0.12 1" />
+          rgba="0.40 0.12 0.12 1" />
       </material>
     </visual>
     <collision>
       <origin
-      	xyz="-0.104 -0.3215 -0.0275"
+      	xyz="-0.3035 -0.3215 -0.03"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -85,8 +85,8 @@
     name="prismatic_0_joint"
     type="prismatic">
     <origin
-      xyz="0.06 0.104 0.3215"
-      rpy="1.5708 0 1.5708" />
+      xyz="0.1135 0 0.3215"
+      rpy="1.5708 0 0" />
     <parent
       link="base_link" />
     <child
@@ -94,8 +94,8 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-0.186"
-      upper="0"
+      lower="-0.104"
+      upper="0.09"
       effort="5"
       velocity="2" />
     <dynamics
@@ -130,7 +130,7 @@
     </inertial>
     <visual>
       <origin
-      	xyz="0.028 -0.361 -0.009"
+      	xyz="-0.018 -0.3581 -0.0225"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -144,7 +144,7 @@
     </visual>
     <collision>
       <origin
-      	xyz="0.028 -0.361 -0.009"
+      	xyz="-0.018 -0.3581 -0.0225"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -156,8 +156,8 @@
     name="prismatic_1_joint"
     type="prismatic">
     <origin
-      xyz="-0.0335 0.0395 0.0005"
-      rpy="0 0 0" />a
+      xyz="-0.1628 0.0365 0.0005"
+      rpy="0 0 0" />
     <parent
       link="prismatic_0" />
     <child
@@ -165,8 +165,8 @@
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-0.184"
-      upper="0"
+      lower="-0.0865"
+      upper="0.0865"
       effort="5"
       velocity="2" />
     <dynamics
@@ -201,7 +201,7 @@
     </inertial>
     <visual>
       <origin
-      	xyz="0.0558 -0.261 -0.0386"
+      	xyz="-0.05 -0.419 -0.0485"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -215,7 +215,7 @@
     </visual>
     <collision>
       <origin
-      	xyz="0.0558 -0.261 -0.0386"
+      	xyz="-0.05 -0.419 -0.0485"
         rpy="0 0 0" />
       <geometry>
         <mesh
@@ -227,7 +227,7 @@
     name="prismatic_2_joint"
     type="prismatic">
     <origin
-      xyz="0.0006 0 0.0295"
+      xyz="0.037 0.0345 0.026"
       rpy="0 0 0" />
     <parent
       link="prismatic_1" />
@@ -236,8 +236,8 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0.224"
+      lower="-0.0889"
+      upper="0.0889"
       effort="5"
       velocity="2" />
     <dynamics
