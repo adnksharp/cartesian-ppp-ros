@@ -127,7 +127,7 @@ if [ "$(echo $DIST | grep -E 'Ubuntu|Debian|Linux Mint')" ]; then
 	printf "run-ros() {\n"
 	AD
 	printf "	export ROS_DISTRO=$ROS_DIST\n"
-	printf "	source $ROS_SOURCE\n"
+	printf "	source /opt/ros/$ROS_DISTRO/setup.$SSHELL\n"
 	printf "	eval \"\$(register-python-argcomplete ros2)\"\n"
 	printf "	eval \"\$(register-python-argcomplete ros2cli)\"\n"
 	printf "	eval \"\$(register-python-argcomplete colcon)\"\n"
