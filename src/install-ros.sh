@@ -7,24 +7,17 @@ else
 	source "$SYS_LANG"
 fi
 
-if [ "$EUID" -ne 0 ]; then
-    printf "${MSG_ROOT_NO}"
-    exit 1
-fi
-
-
-
 DIST="$(. /etc/os-release && echo $PRETTY_NAME)"
 printf "${MSG_TITLE}$(echo $DIST | awk -F ' ' '{print $1}')\n"
 
 # for ubuntu distros
 if [ "$(echo $DIST | grep -E 'Ubuntu|Debian|Linux Mint')" ]; then
 	printf "${MSG_PKG_PRE}"
-	apt install software-properties-common lsb-release gnupg curl -y > /dev/null 2>&1
+	sudo apt install software-properties-common lsb-release gnupg curl -y > /dev/null 2>&1
 	printf "${MSG_TAB_PRE}"
 
 	printf "${MSG_PKG_UNIV}"
-	add-apt-repository universe -y > /dev/null 2>&1
+	sudo add-apt-repository universe -y > /dev/null 2>&1
 	printf "${MSG_TAB_UNIV}"
 
 	printf "${MSG_PKG_KEYS}"
@@ -47,14 +40,11 @@ if [ "$(echo $DIST | grep -E 'Ubuntu|Debian|Linux Mint')" ]; then
 	ROS_DIST="alpha1"
 	PKG_COUNT=50
 	for i in "${ROS_DISTROS[@]}"; do
-		printf "${MSG_ROS_FIND} $i"
+		printf "${MSG_ROS_FIND} $i ${MSG_TAB_ROS}"
 		ROS_CHECK="$(apt search ros-$i > /dev/null 2>&1 | wc -l)"
 		if [ "$ROS_CHECK" -gt "$PKG_COUNT" ]; then
 			ROS_DIST=$i
-			printf "${MSG_TAB_ROS}"
 			break
-		else
-			printf "\n"
 		fi
 	done
 
@@ -63,7 +53,7 @@ if [ "$(echo $DIST | grep -E 'Ubuntu|Debian|Linux Mint')" ]; then
 		if [[ "$line" == *"ros-"* ]]; then
 			line=${line//ROS_DIST/$ROS_DIST}
 			printf "${MSG_PKG_INSTALL} $line\n"
-			apt install -y $line > /dev/null 2>&1
+			sudo apt install -y $line > /dev/null 2>&1
 		fi
 	done < ./src/deb-packages.txt
 	
@@ -76,24 +66,58 @@ if [ "$(echo $DIST | grep -E 'Ubuntu|Debian|Linux Mint')" ]; then
 		printf "${MSG_TAB_ROS_FAIL}"
 		exit 1
 	fi
-	printf "${MSG_GZ_INSTALL}"
+
 	if [[ "$ROS_DIST" == "rolling" ]]; then
-		printf "ionic   "
-		apt-get install gz-ionic -y > /dev/null 2>&1
+		gz_print="ionic   "
+		gz_install="gz-ionic"
 	elif [[ "$ROS_DIST" == "jazzy" ]]; then
-		printf "harmonic"
-		apt-get install gz-harmonic -y > /dev/null 2>&1
+		gz_print="harmonic"
+		gz_install="gz-harmonic"
 	elif [[ "$ROS_DIST" == "humble" ]]; then
-		printf "fortress"
-		apt-get install ignition-fortress -y > /dev/null 2>&1
+		gz_print="fortress"
+		gz_install="ignition-fortress"
 	else
-		printf "citadel "
-		apt-get install ignition-citadel -y > /dev/null 2>&1
+		gz_print="citadel "
+		gz_install="ignition-citadel"
 	fi
-	printf "${MSG_TAB_GZ}"
+	printf "${MSG_GZ_INSTALL}${gz_print}${MSG_TAB_GZ}"
+	sudo apt install $gz_install -y > /dev/null 2>&1
+	printf "${MSG_GZ_INSTALLED}${gz_print}${MSG_TAB_GZ_OK}"
 
+	SSHELL="$(echo $SHELL | awk -F '/' '{print $NF}')"
+	ROS_DISTRO="$ROS_DIST"
 
-	printf "${MSG_FINISH}"
+	source /opt/ros/$ROS_DISTRO/setup.$SSHELL
+
+	printf "${MSG_UROS_DOWNLOAD}"
+	rm -rf ~/uros-ws
+	mkdir -p ~/uros-ws
+	cd ~/uros-ws
+	git clone -b $ROS_DISTRO https://github.com/micro-ROS/micro_ros_setup.git src/micro_ros_setup > /dev/null 2>&1
+	printf "${MSG_TAB_UROSDOWN}"
+
+	printf "${MSG_UROS_INSTALL}"
+	sudo apt update > /dev/null 2>&1 && rosdep update > /dev/null 2>&1
+	rosdep install --from-paths src --ignore-src -y > /dev/null 2>&1
+	colcon build > /dev/null 2>&1
+	source install/local_setup.$SSHELL
+	printf "${MSG_TAB_UROSINS}"
+
+	printf "${MSG_UROS_AGENT_CR}"
+	ros2 run micro_ros_setup create_agent_ws.sh > /dev/null 2>&1
+	printf "${MSG_TAB_UROSCR}"
+	
+	printf "${MSG_UROS_AGENT_BLD}"
+	ros2 run micro_ros_setup build_agent.sh > /dev/null 2>&1
+	source install/local_setup.$SSHELL
+	printf "${MSG_TAB_UROSBLD}"
+
+	printf "${MSG_UROS_INO}"
+	rm -rf ~/Arduino/libraries/micro_ros_arduino
+	git clone -b $ROS_DISTRO https://github.com/micro-ROS/micro_ros_arduino.git ~/Arduino/libraries/micro_ros_arduino > /dev/null 2>&1
+	printf "${MSG_TAB_UROSINO}"
+
+	printf "${MSG_FINISH} \e[93m~/.${SSHELL}rc\e[90m:\e[0m\n"
 	for i in $(seq 1 60); do
 		printf "#"
 	done
@@ -101,12 +125,21 @@ if [ "$(echo $DIST | grep -E 'Ubuntu|Debian|Linux Mint')" ]; then
 	printf "export ROS_VERSION=2\n"
 	printf "export ROS_PYTHON_VERSION=3\n"
 	printf "run-ros() {\n"
+	AD
 	printf "	export ROS_DISTRO=$ROS_DIST\n"
 	printf "	source $ROS_SOURCE\n"
 	printf "	eval \"\$(register-python-argcomplete ros2)\"\n"
 	printf "	eval \"\$(register-python-argcomplete ros2cli)\"\n"
 	printf "	eval \"\$(register-python-argcomplete colcon)\"\n"
 	printf "}\n"
+	printf "run-uros() {\n"
+	printf "	export ROS_DISTRO=$ROS_DIST\n"
+	printf "	source ~/uros_ws/install/local_setup.$SSHELL\n"
+	printf "	eval \"\$(register-python-argcomplete ros2)\"\n"
+	printf "	eval \"\$(register-python-argcomplete ros2cli)\"\n"
+	printf "	eval \"\$(register-python-argcomplete colcon)\"\n"
+	printf "}\n"
+	printf "alias ros-agent=\"ros2 run micro_ros_agent micro_ros_agent\"\n"
 	for i in $(seq 1 60); do
 		printf "#"
 	done
