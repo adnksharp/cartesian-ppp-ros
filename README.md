@@ -21,10 +21,10 @@ Robot cartesiano de 3 DOF con ROS2,
     <summary>Componentes electrónicos</summary>
 
 * 1 [ESP32 S3 WROOM 1 N16R8 DevKit](https://www.amazon.com/HiLetgo-ESP32-S3-ESP32-S3-DevKit-Bluetooth-Development/dp/B0CDWXWXCG)
-* 2 [Modulo controlador de motores L298N](https://www.amazon.com/WWZMDiB-L298N-H-Bridge-Controller-Raspberry/dp/B0CR6BX5QL)
+* 2 [Módulos controladores de motores L298N](https://www.amazon.com/WWZMDiB-L298N-H-Bridge-Controller-Raspberry/dp/B0CR6BX5QL)
 * 3 [Motores con encoder JGA25-371](https://www.amazon.com/JGA25-371-Encoder-Mounting-Bracket-Reduction/dp/B0CGLSGSZ7)
 * 4 [LEDs 5730](https://www.amazon.com/AEDIKO-Lighting-Electronics-Components-Emitting/dp/B09XB5KDWS)
-* 4 [Resistencias 220 $\Omega$ 1206](https://www.amazon.com/Chanzon-Resistor-Tolerance-Resistors-Certificated/dp/B08R8CW7TX)
+* 4 [Resistencias 220 Ohms 1206](https://www.amazon.com/Chanzon-Resistor-Tolerance-Resistors-Certificated/dp/B08R8CW7TX)
 * 1 Fuente de alimentación 12V 2A
 
 </details>
@@ -59,11 +59,17 @@ Más información sobre el script en [src](src).
 ## Espacio de Trabajo de ROS2
 Dentro de la carpeta ros-ws se encuentra el paquete en desarrollo `carobot`, el cual contiene los archivos para la visualización y simulación del robot cartesiano en Gazebo y RViz.
 
+### Construcción del espacio de trabajo
+
 ```shell
 cd ros-ws
 colcon build
-source install/setup.$(echo $SHELL | awk -F '/' '{print $NF}')
 ```
+
+### Ejecución del 
+
+```shell
+source install/setup.$(echo $SHELL | awk -F '/' '{print $NF}')
 
 [ros-ws](ros-ws) contiene más información sobre el espacio de trabajo de ROS2.
 
