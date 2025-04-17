@@ -66,10 +66,19 @@ cd ros-ws
 colcon build
 ```
 
-### Ejecución del 
+### Ejecución del lanzador
 
 ```shell
 source install/setup.$(echo $SHELL | awk -F '/' '{print $NF}')
+ros2 launch carobot display.launch.py
+```
+
+### Ejecución de la interfaz de usuario
+
+```shell
+source install/setup.$(echo $SHELL | awk -F '/' '{print $NF}')
+ros2 run carobot pos_put.py
+```
 
 [ros-ws](ros-ws) contiene más información sobre el espacio de trabajo de ROS2.
 
