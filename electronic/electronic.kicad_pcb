@@ -10,10 +10,6 @@
 	(title_block
 		(title "PCB del robot planar (PPP)")
 		(date "13/03/25")
-		(comment 1 "ADAN RODRIGO DE LA CRUZ OSORIO 192637")
-		(comment 2 "DANIELA YAZMIN TARANGO MONTES 201153")
-		(comment 3 "JOSE ORLANDO MARTINEZ GONZALEZ 201471 ")
-		(comment 4 "BERNARDO DAVID BURCIAGA MEDINA 201489")
 	)
 	(layers
 		(0 "F.Cu" signal)
@@ -72,7 +68,6 @@
 			(psnegative no)
 			(psa4output no)
 			(plot_black_and_white no)
-			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
 			(hidednponfab no)
