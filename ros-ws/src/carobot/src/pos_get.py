@@ -46,7 +46,7 @@ class JointStatePublisher(Node):
         joint_state.velocity = velocities
         joint_state.effort = efforts
         self.publisher_.publish(joint_state)
-        self.get_logger().info(f'{positions}')
+        #self.get_logger().info(f'{positions}')
 
 def main(args=None):
     rclpy.init(args=args)
