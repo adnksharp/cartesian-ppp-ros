@@ -7,10 +7,7 @@
 	(title_block
 		(title "Esquema del robot planar (PPP)")
 		(date "13/03/25")
-		(comment 1 "ADAN RODRIGO DE LA CRUZ OSORIO 192637")
-		(comment 2 "DANIELA YAZMIN TARANGO MONTES 201153")
-		(comment 3 "JOSE ORLANDO MARTINEZ GONZALEZ 201471 ")
-		(comment 4 "BERNARDO DAVID BURCIAGA MEDINA 201489")
+		(comment 1 "192637, 201153, 201471, 201489")
 	)
 	(lib_symbols
 		(symbol "Connector:Screw_Terminal_01x02"

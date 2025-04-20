@@ -504,7 +504,7 @@
       "plot": "../img/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "../src/simple/PCBZero.stl",
+      "step": "3D lib/PCB.step",
       "svg": "",
       "vrml": "../src/PCB.wrl"
     },
