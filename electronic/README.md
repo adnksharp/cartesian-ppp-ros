@@ -1,10 +1,10 @@
-# Electrónica del proyecto
+# Esquema elctrónico
 ![](<../img/electronic PCB 3D.png>)
 
-El proyecto se desarrolló usando [KiCAD](https://www.kicad.org/). El archivo del proyecto se encuentra en la carpeta `electronic` ([electronic.kicad_pro](electronic.kicad_pro)). Los componentes utilizados en el proyecto son:
+El proyecto se desarrolló usando [KiCAD](https://www.kicad.org/). ([electronic.kicad_pro](electronic.kicad_pro)) se desarrollo para conectar una placa de ESP32 con 2 controladores de motores L298 y encoders de 3 motores JGA25-371. Los componentes utilizados en el proyecto son:
 
 * 1 **ESP32 S3** WROOM 1 N16R8 DevKit
-* 2 Modulos controladores de motores **L298N**
+* 2 Modulos controladores de motores **L298**
 * 3 Motores con encoder **JGA25-371**
 * 4 LEDs
 * 4 Resistencias **220 $\Omega$**
