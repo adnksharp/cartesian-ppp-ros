@@ -1,12 +1,14 @@
 #include "config.h"
 #include "encoder.h"
 #include "times.h"
+#include "leds.h"
 #include "uros.h"
 
-extern const byte LED[6];
+extern byte LED[6];
 extern byte MOTOR[3][2];
 extern byte ENCODER[3][2];
 
+LEDs led;
 UROS ros;
 Motor motor;
 Ticker alerts;
@@ -21,6 +23,7 @@ void T1encoder()
 	{
 		motor.vel[i] = (motor.pos[i] - motor.cache[i]) / (enc_ms / 1000.0);
 		motor.cache[i] = motor.pos[i];
+		led.set(LED[i], motor.vel[i] != 0);
 	}
 }
 
@@ -28,22 +31,7 @@ void setup()
 {
 	Serial.begin(115200);
 	
-	for (byte i: LED)
-	{
-		pinMode(i, OUTPUT);
-		digitalWrite(i, HIGH);
-		delay(100);
-		digitalWrite(i, LOW);
-	}
-	neopixelWrite(LED[5], 255, 0, 0);
-	delay(100);
-	neopixelWrite(LED[5], 0, 255, 0);
-	delay(100);
-	neopixelWrite(LED[5], 0, 0, 255);
-	delay(100);
-	neopixelWrite(LED[5], 0, 0, 0);
-
-
+	led.begin(LED);
 	ros.begin(NODE_NAME);
 	ros.make_multi_int16(TOPIC_ENCODER_POS, 3, ros.enc1_pos_pub);
 	ros.make_multi_int16(TOPIC_ENCODER_VEL, 3, ros.enc1_vel_pub);
@@ -54,8 +42,10 @@ void setup()
 
 void loop()
 {
+	led.set(LED[3], HIGH);
 	int16_t pos[3] = {motor.pos[0], motor.pos[1], motor.pos[2]};
 	int16_t vel[3] = {motor.vel[0], motor.vel[1], motor.vel[2]};
 	ros.post_multi_int16(pos, 3, ros.enc1_pos_pub);
 	ros.post_multi_int16(vel, 3, ros.enc1_vel_pub);
+	led.set(LED[3], LOW);
 }

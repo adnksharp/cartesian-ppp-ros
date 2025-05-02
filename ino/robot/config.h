@@ -1,5 +1,9 @@
 // hardware definitions
-const byte LED[6] = {11, 12, 13, 14, LED_BUILTIN, RGB_BUILTIN};
+#ifdef RGB_BUILTIN
+byte LED[6] = {11, 12, 13, 14, LED_BUILTIN, RGB_BUILTIN};
+#else
+byte LED[6] = {11, 12, 13, 14, 2, 0};
+#endif
 byte MOTOR[3][2] = {
 	{17, 18},
 	{8, 3},

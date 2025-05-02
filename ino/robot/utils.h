@@ -1,10 +1,12 @@
 #include <Arduino.h>
 
+extern byte LED[6];
+
 void err(bool rgb)
 {
 	while (!rgb)
 	{
-		digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
+		digitalWrite(LED[4], !digitalRead(LED[4]));
 		delay(50);
 	}
 }
