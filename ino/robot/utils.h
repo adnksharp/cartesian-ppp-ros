@@ -1,11 +1,10 @@
 #include <Arduino.h>
 
-void err(byte pin)
+void err(bool rgb)
 {
-	while (1)
+	while (!rgb)
 	{
-		digitalWrite(pin, !digitalRead(pin));
+		digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
 		delay(50);
 	}
 }
-

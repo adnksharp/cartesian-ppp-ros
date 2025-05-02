@@ -1,56 +1,61 @@
-#include "uros.h"
+#include "config.h"
 #include "encoder.h"
+#include "times.h"
+#include "uros.h"
 
-extern int LED;
-extern int ENCODER_A;
-extern int ENCODER_B;
-extern char *NODE_NAME;
-extern char *ENCODER_TOPIC;
+extern const byte LED[6];
+extern byte MOTOR[3][2];
+extern byte ENCODER[3][2];
 
-// uROS object
 UROS ros;
-Encoder encoder;
+Motor motor;
+Ticker alerts;
 
-void EncoderRead()
+extern void M1Update();
+extern void M2Update();
+extern void M3Update();
+
+void T1encoder()
 {
-	if (digitalRead(encoder.phaseA) == digitalRead(encoder.phaseB))
-		encoder.count++;
-	else
-		encoder.count--;
-	int32_t data[3] = {encoder.id, encoder.count, millis()};
-	ros.spin_publisher_multi_i32(data, 2, ros.encoder);
+	for (int i = 0; i < 3; i++)
+	{
+		motor.vel[i] = (motor.pos[i] - motor.cache[i]) / (enc_ms / 1000.0);
+		motor.cache[i] = motor.pos[i];
+	}
 }
 
 void setup() 
 {
-	pinMode(LED, OUTPUT);
-	digitalWrite(LED, HIGH);
+	Serial.begin(115200);
 	
-	// initialize uROS
-	ros.begin();
-	// make uROS topics
-	//ros.create_publisher(PUB_TOPIC);
-	//ros.create_subscriber(SUB_TOPIC);
-	ros.create_multi_i32(ENCODER_TOPIC, 3, ros.encoder);
+	for (byte i: LED)
+	{
+		pinMode(i, OUTPUT);
+		digitalWrite(i, HIGH);
+		delay(100);
+		digitalWrite(i, LOW);
+	}
+	neopixelWrite(LED[5], 255, 0, 0);
+	delay(100);
+	neopixelWrite(LED[5], 0, 255, 0);
+	delay(100);
+	neopixelWrite(LED[5], 0, 0, 255);
+	delay(100);
+	neopixelWrite(LED[5], 0, 0, 0);
+
+
+	ros.begin(NODE_NAME);
+	ros.make_multi_int16(TOPIC_ENCODER_POS, 3, ros.enc1_pos_pub);
+	ros.make_multi_int16(TOPIC_ENCODER_VEL, 3, ros.enc1_vel_pub);
 	
-	// initialize encoder
-	encoder.init(ENCODER_A, ENCODER_B, 0);
-	//attachInterrupt(digitalPinToInterrupt(ENCODER_A), encoder.read, CHANGE);
-	
-	digitalWrite(LED, LOW);
+	motor.init(ENCODER, MOTOR);
+	alerts.attach_ms(enc_ms, T1encoder);
 }
 
-void loop() 
+void loop()
 {
-	// get accel, gyro, temp from MPU6050 and publish them
-	/*
-	float mpu_data[3];
-	impu.get_accel(mpu_data);
-	ros.spin_publisher_multi_f32(mpu_data, 3, ros.mpu_accel);
-	impu.get_gyro(mpu_data);
-	ros.spin_publisher_multi_f32(mpu_data, 3, ros.mpu_gyro);
-	ros.spin_publisher_f32(impu.get_temp(), ros.mpu_temp);
-	*/
-	//ros.spin_subscriber();
-
+	int16_t pos[3] = {motor.pos[0], motor.pos[1], motor.pos[2]};
+	int16_t vel[3] = {motor.vel[0], motor.vel[1], motor.vel[2]};
+	ros.post_multi_int16(pos, 3, ros.enc1_pos_pub);
+	ros.post_multi_int16(vel, 3, ros.enc1_vel_pub);
 }

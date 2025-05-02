@@ -1,10 +1,21 @@
 // hardware definitions
-int LED = 2;
-int ENCODER_A = 34;
-int ENCODER_B = 35;
+const byte LED[6] = {11, 12, 13, 14, LED_BUILTIN, RGB_BUILTIN};
+byte MOTOR[3][2] = {
+	{17, 18},
+	{8, 3},
+	{9, 10}
+}, ENCODER[3][2] = {
+	{5, 4},
+	{7, 6},
+	{16, 15}
+};
+
+const int enc_ms = 50;
 
 // uROS configurations
-char *NODE_NAME = "ESP32";
-//char *SUB_TOPIC = "driver/listener";
-char *ENCODER_TOPIC = "driver/encoder/accel";
-const unsigned int WATCHDOG = 1000;
+char *NODE_NAME  = "sensiact",
+	 *TOPIC_LIM = "sensiact/limit",
+	 *TOPIC_STATUS  = "sensiact/led",
+	 *TOPIC_ENCODER_POS = "sensiact/encoder/pos",
+	 *TOPIC_ENCODER_VEL = "sensiact/encoder/vel",
+	 *TOPIC_MOTOR_VEL = "sensiact/motor/vel";

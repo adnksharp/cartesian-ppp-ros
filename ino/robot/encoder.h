@@ -1,12 +1,9 @@
 #include <Arduino.h>
 
-struct Encoder {
-	int phaseA;
-	int phaseB;
-	volatile long count;
-	int id;
-	void read();
-	void init(int encA, int encB, int encID);
+struct Motor {
+	volatile int pos[3];
+	float vel[3], cache[3];
+	byte in[3][2], out[3][2];
+	void init(byte encoder[3][2], byte motor[3][2]);
+	void run(byte id, short speed);
 };
-
-extern Encoder encoder;

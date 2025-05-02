@@ -1,38 +1,38 @@
 const byte led[4] = {11, 12, 13, 14};
 const byte motor[3][2] = {
-  {17,18},
-  {8, 3},
-  {9, 10}
+	{17,18},
+	{8, 3},
+	{9, 10}
 }, encoder[3][2] = {
-  {4, 5},
-  {6, 7},
-  {15, 16}
+	{5, 4},
+	{7, 6},
+	{16, 15}
 };
 
 volatile long position[3] = {0, 0, 0};
 
 void encoderA()
 {
-  if(digitalRead(encoder[0][0]) == digitalRead(encoder[0][1]))
-    position[0]++;
-  else
-    position[0]--;
+	if(digitalRead(encoder[0][0]) == digitalRead(encoder[0][1]))
+		position[0]++;
+	else
+		position[0]--;
 }
 
 void encoderB()
 {
-  if(digitalRead(encoder[1][0]) == digitalRead(encoder[1][1]))
-    position[1]++;
-  else
-    position[1]--;
+	if(digitalRead(encoder[1][0]) == digitalRead(encoder[1][1]))
+		position[1]++;
+	else
+		position[1]--;
 }
 
 void encoderC()
 {
-  if(digitalRead(encoder[2][0]) == digitalRead(encoder[2][1]))
-    position[2]++;
-  else
-    position[2]--;
+	if(digitalRead(encoder[2][0]) == digitalRead(encoder[2][1]))
+		position[2]++;
+	else
+		position[2]--;
 }
 
 void serialEvent()
@@ -61,31 +61,28 @@ void serialEvent()
 
 void setup()
 {
-  Serial.begin(115200);
+	Serial.begin(115200);
 
-  for(size_t i = 0; i < sizeof(encoder) / sizeof(encoder[0]); i++)
-    for(byte j = 0; j < 2; j++)
-      pinMode(encoder[i][j], INPUT);
-  attachInterrupt(digitalPinToInterrupt(encoder[0][0]), encoderA, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(encoder[1][0]), encoderB, CHANGE);
-  attachInterrupt(digitalPinToInterrupt(encoder[2][0]), encoderC, CHANGE);
-  for(size_t i = 0; i < sizeof(motor) / sizeof(motor[0]); i++)
-    for(byte j = 0; j < 2; j++)
-      pinMode(motor[i][j], OUTPUT);
-  for(byte i: led)
-    pinMode(i, OUTPUT);
-  
+	for(size_t i = 0; i < sizeof(encoder) / sizeof(encoder[0]); i++)
+		for(byte j = 0; j < 2; j++)
+			pinMode(encoder[i][j], INPUT);
+	for(size_t i = 0; i < sizeof(motor) / sizeof(motor[0]); i++)
+		for(byte j = 0; j < 2; j++)
+			pinMode(motor[i][j], OUTPUT);
+	for(byte i: led)
+		pinMode(i, OUTPUT);
 
-  digitalWrite(RGB_BUILTIN, LOW);
-
-
+	attachInterrupt(digitalPinToInterrupt(encoder[0][0]), encoderA, CHANGE);
+	attachInterrupt(digitalPinToInterrupt(encoder[1][0]), encoderB, CHANGE);
+	attachInterrupt(digitalPinToInterrupt(encoder[2][0]), encoderC, CHANGE);
+	digitalWrite(RGB_BUILTIN, LOW);
 }
 
 void loop()
 {
-  //for(byte i: led)
-    //digitalWrite(i, random(2));
-  //neopixelWrite(RGB_BUILTIN, 255 * random(2), 255 * random(2), 255 * random(2));
-  Serial.println(String(position[0]) + "\t" + String(position[1]) + "\t" + String(position[2]));
-  delay(50);
+	//for(byte i: led)
+		//digitalWrite(i, random(2));
+	//neopixelWrite(RGB_BUILTIN, 255 * random(2), 255 * random(2), 255 * random(2));
+	Serial.println(String(position[0]) + "\t" + String(position[1]) + "\t" + String(position[2]));
+	delay(50);
 }
