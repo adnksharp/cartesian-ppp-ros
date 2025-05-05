@@ -50,6 +50,7 @@ void Motor::init(byte encoder[3][2], byte motor[3][2])
 
 void Motor::run(byte id, short speed)
 {
+	digitalWrite(LED[id], speed != 0);
 	if (id < sizeof(out) / sizeof(out[0]))
 	{
 		analogWrite(out[id][0], speed > 0 ? speed : 0);

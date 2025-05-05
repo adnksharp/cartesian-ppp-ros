@@ -1,12 +1,18 @@
 #include <Arduino.h>
 
 extern byte LED[6];
+byte red = 0;
 
-void err(bool rgb)
+void err(bool rgb, bool fail)
 {
-	while (!rgb)
+	red = 255 - red;
+	if (rgb)
 	{
-		digitalWrite(LED[4], !digitalRead(LED[4]));
-		delay(50);
+		if (fail)
+			neopixelWrite(LED[5], red, 0, 0);
+		else
+			neopixelWrite(LED[5], red, 0, red);
 	}
+	else
+		digitalWrite(LED[5], !digitalRead(LED[5]));
 }

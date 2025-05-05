@@ -23,3 +23,5 @@ char *NODE_NAME  = "sensiact",
 	 *TOPIC_ENCODER_POS = "sensiact/encoder/pos",
 	 *TOPIC_ENCODER_VEL = "sensiact/encoder/vel",
 	 *TOPIC_MOTOR_VEL = "sensiact/motor/vel";
+
+byte watchdog = 15, timeout = 10;
