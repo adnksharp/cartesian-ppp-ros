@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8">
+	<title>Applicación de control del robot cartesiano | ROS2 CRUI</title>
+    <link rel="stylesheet" href="/styles/main.css">
+  </head>
+  <body>
+    <div id="neutralinoapp">
+		<div id="left">
+			<div id="info">
+				<h1>Estado del sistema</h1>
+				<div id="p">
+					<p id="simple">WebSocket: </span>
+					<p id="websocket-status" class="highlight">Desconectado</p>
+				</div>
+				<div id="p">
+					<p id="simple">ROS2: </span>
+					<p id="ros-status" class="highlight">Desconectado</p>
+				</div>
+				<div id="p">
+					<p id="simple">&#956;ROS: </span>
+					<p id="uros-status" class="highlight">Desconectado</p>
+				</div>
+				<div id="p">
+					<p id="simple">Gazebo: </span>
+					<p id="gazebo-status" class="highlight">Desconectado</p>
+				</div>
+				<!--
+				<h2>Límites del robot</h1>
+				<div id="p">
+					<p id="simple">Posición en X: </span>
+					<p id="x-limits" class="display">[-0.000, 0.000]</p>
+					<p>m </p>
+				</div>
+				<div id="p">
+					<p id="simple">Posición en Y: </span>
+					<p id="y-limits" class="display">[-0.000, 0.000]</p>
+					<p>m </p>
+				</div>
+				<div id="p">
+					<p id="simple">Posición en Z: </span>
+					<p id="z-limits" class="display">[-0.000, 0.000]</p>
+					<p>m </p>
+				</div>
+				<div id="p">
+					<p id="simple">Velocidad: </span>
+					<p id="speed" class="display">[0.000, 0.000, 0.000]</p>
+					<p>m/s </p>
+				</div>
+				-->
+			</div>
+			<div id="status">
+				<h1>Posición actual</h1>
+				<div id="p">
+					<p id="simple">X:</span>
+					<p id="x-status" class="display">000.000</p>
+					<p>m </p>
+				</div>
+				<div id="p">
+					<p id="simple">Y:</span>
+					<p id="y-status" class="display">000.000</p>
+					<p>m </p>
+				</div>
+				<div id="p">
+					<p id="simple">Z:</span>
+					<p id="z-status" class="display">000.000</p>
+					<p>m </p>
+				</div>
+			</div>
+			<div id="control">
+				<h1>Control del robot</h1>
+				<div id="main">
+					<div id="p">
+						<p id="simple">X:</span>
+						<input type="number" id="x-input" class="input" placeholder="0.000" step="0.001" disabled/>
+						<p>m</p>
+					</div>
+					<div id="p">
+						<p id="simple">Y:</span>
+						<input type="number" id="y-input" class="input" placeholder="0.000" step="0.001" disabled/>
+						<p>m</p>
+					</div>
+					<div id="p">
+						<p id="simple">Z:</span>
+						<input type="number" id="z-input" class="input" placeholder="0.000" step="0.001" disabled/>
+						<p>m</p>
+					</div>
+				</div>
+				<div class="actions">
+					<button id="go" class="button">➤</button>
+					<button id="random" class="button">⇄</button>
+					<button id="home" class="button">↺</button>
+				</div>
+			</div>
+		</div>
+		<div id="right">
+			<div id="progress">
+				<h1>Tareas en progreso</h1>
+				<ul>
+					<li id="task0" class="task">
+						<p>Esperando...</p>
+					</li>
+					<!--
+					<li id="task1" class="task">
+						<p class="display">[0.000, 0.000, 0.000]</p>
+						<button id="cancel2" class="cancel">Cancelar</button>
+					</li>
+					-->
+				</ul>
+				<div class="actions">
+					<button id="cancel-works">x</button>
+				</div>
+			</div>
+			<div id="history">
+				<h1>Historial</h1>
+				<ul>
+					<li id="history0" class="history">
+						<p>Historial vacío</p>
+					</li>
+					<!--
+					<li id="history1" class="history">
+						<p id="simple" class="start">Inicio: </span>
+						<p class="display">01/01/23 00:00:00</p>
+						<p id="simple" class="end">Fin: </span>
+						<p class="display">01/01/23 00:00:00</p>
+						<p id="simple" class="status">Estado: </span>
+						<p class="display">Completado</p>
+						<p id="simple" class="task">Tarea: </span>
+						<p class="display">Mover a posición</p>
+						<p id="simple" class="position">Posición: </span>
+						<p class="display">[0.000, 0.000, 0.000]</p>
+					</li>
+					-->
+				</ul>
+				<div class="actions">
+					<button id="clear-history">󠁝󠁝x</button>
+					<button id="save-history">🗁</button>
+				</div>
+			</div>
+		</div>
+    </div>
+    <script src="/js/neutralino.js"></script>
+    <script src="/js/main.js"></script>
+	<script src="/js/rosjs.js"></script>
+  </body>
+</html>

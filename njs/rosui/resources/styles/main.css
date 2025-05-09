@@ -1,0 +1,239 @@
+:root {
+	--background-color: #ffffff;
+	--background-color-light: #dfdfdf;
+	--text-color: #000000;
+	--color: #ff5722;
+	--highlight: #f58113;
+	--font-sans: 'SF Pro Text', 'Segoe UI', 'Noto Sans', 'Helvetica Neue', sans-serif;
+	--font-monospace: 'JetBrainsMono Nerd Font', 'Courier New', 'Courier', 'monospace';
+}
+
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background-color: #111112;
+		--background-color-light: #000;
+		--text-color: #ffffff;
+	}
+}
+
+body {
+    background-color: var(--background-color-light);
+	color: var(--text-color);
+	font-family: var(--font-sans);
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+h1 {
+	font-size: 1.5rem;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+h2 {
+	font-size: 1.2rem;
+	margin: 0;
+	padding: 0;
+}
+
+p {
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+}
+
+button {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: var(--color);
+	color: #ffffff;
+	font-weight: bold;
+	border: none;
+	border-radius: 10px;
+	margin: 5px;
+	font-size: 1.2rem;
+	cursor: pointer;
+	width: 2.5rem;
+	margin-left: auto;
+	margin-right: auto;
+	transition: 0.2s;
+}
+
+button:focus {
+	outline: none;
+}
+
+button:hover {
+	background-color: var(--highlight);
+	width: 8rem;
+	color: #ffffff;
+	opacity: 1;
+}
+
+button:after {
+	opacity: 0;
+}
+
+button:hover:after {
+	opacity: 1;
+}
+
+input[type="number"] {
+	background-color: var(--background-color-light);
+	color: var(--text-color);
+	font-family: var(--font-monospace);
+	border: 1px solid var(--text-color);
+	border-radius: 10px;
+	padding: 5px;
+	margin: 0 5px;
+	width: 4rem;
+}
+
+input[type="number"]:focus {
+	outline: none;
+	border: 1px solid var(--color);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#neutralinoapp {
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: default;
+	display: flex;
+	flex-direction: row;
+}
+
+#neutralinoapp #left,
+#neutralinoapp #right {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: auto;
+}
+
+#neutralinoapp #left {
+	height: calc(100vh - 20px);
+	margin: 10px 5px 10px 10px;
+	display: flex;
+	flex-direction: column;
+	top: 0;
+	left: 0;
+}
+
+#neutralinoapp #right {
+	margin: 10px 10px 10px 5px;
+	padding: 0;
+	top: 0;
+	right: 0;
+}
+
+#neutralinoapp #info,
+#neutralinoapp #status,
+#neutralinoapp #control {
+	padding: 10px;
+	border-radius: 15px;
+	background-color: var(--background-color);
+	display: flex;
+	flex-direction: column;
+}
+
+#neutralinoapp #status {
+	margin: 10px 0;
+}
+
+#neutralinoapp #control {
+	height: 100%;
+}
+
+#neutralinoapp #p {
+	display: flex;
+	flex-direction: row;
+	margin: 5px;
+}
+
+#neutralinoapp #progress,
+#neutralinoapp #history {
+	padding: 10px;
+	background-color: var(--background-color);
+	width: calc(50vw - 35px);
+	height: calc(50vh - 35px);
+	border-radius: 15px;
+}
+
+#neutralinoapp #progress {
+	margin-bottom: 5px;
+}
+
+#neutralinoapp #history {
+	margin-top: 5px;
+}
+
+#neutralinoapp .highlight,
+#neutralinoapp .display {
+	color: var(--color);
+	font-family: var(--font-monospace);
+	margin: 0 0.5rem;
+}
+
+#neutralinoapp .actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#control #main {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+#control #p {
+	padding: 2px;
+}
+
+#progress ul,
+#history ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	height: calc(50vh - 6.6rem);
+	overflow: auto;
+}
+
+#go:hover:after {
+  content: 'Iniciar';
+}
+
+#home:hover:after {
+  content: 'Inicio';
+}
+
+#cancel-works:hover:after {
+  content: 'Todo';
+}
+
+#clear-history:hover:after {
+  content: 'Limpiar';
+}
+
+#random:hover:after {
+  content: 'Aleatorio';
+}
+
+#save-history:hover:after {
+  content: 'Guardar';
+}

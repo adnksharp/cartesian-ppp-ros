@@ -1,0 +1,19 @@
+{
+  "name": "rosocket",
+  "version": "1.0.0",
+  "description": "ROS2 WebSocket client for Node.js",
+  "license": "ISC",
+  "author": {
+    "name": "Sharp",
+    "email": "darkmark404@protonmail.com"
+  },
+  "type": "commonjs",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "rclnodejs": "^1.0.0",
+    "ws": "^8.18.2"
+  }
+}
