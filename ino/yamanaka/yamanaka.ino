@@ -1,15 +1,66 @@
+#include <Ticker.h>
+//Hardware config
 const byte led[4] = {11, 12, 13, 14};
 const byte motor[3][2] = {
 	{17,18},
-	{8, 3},
-	{9, 10}
+	{10, 9},
+	{3, 8}
 }, encoder[3][2] = {
 	{5, 4},
-	{7, 6},
+	{6, 7},
 	{16, 15}
 };
 
-volatile long position[3] = {0, 0, 0};
+//Encoder
+volatile long position[3] = {0, 0, 0},
+         setpoint[3] = {0, 0, 0};
+
+//PID 
+Ticker PIDTicker;
+int sampleTime = 100;
+double Kp[3] = {0.1, 0.1, 0.1},
+       Ki[3] = {0.005, 0.005, 0.005},
+       Kd[3] = {0.1, 0.1, 0.1},
+       KpError[3] = {0, 0, 0},
+       KiError[3] = {0, 0, 0},
+       KdError[3] = {0, 0, 0},
+       CacheError[3] = {0, 0, 0},
+       output[3] = {0, 0, 0};
+float outMin[3] = {-255, -255, -255},
+      outMax[3] = {255, 255, 255};
+int PWM[3] = {0, 0, 0},
+     minPWM[3] = {90, 140, 45};
+
+void PID()
+{
+  for(byte i = 0; i < 3; i++)
+  {
+    double error = setpoint[i] - position[i];
+
+    KpError[i] = Kp[i] * error;
+    KiError[i] += Ki[i] * error * (sampleTime / 1000.0);
+    KiError[i] = constrain(KiError[i], outMin[i], outMax[i]);
+    KdError[i] = Kd[i] * (error - CacheError[i]) / (sampleTime / 1000.0);
+    CacheError[i] = error;
+
+    output[i] = KpError[i] + KiError[i] + KdError[i];
+    output[i] = constrain(output[i], outMin[i], outMax[i]);
+
+    if(output[i] > outMax[i])
+      output[i] = outMax[i];
+    else if(output[i] < outMin[i])
+      output[i] = outMin[i];
+
+    PWM[i] = output[i];
+    if(PWM[i] != 0)
+    {
+      if(PWM[i] > 0 && PWM[i] < minPWM[i])
+        PWM[i] = minPWM[i];
+      else if(PWM[i] < 0 && -PWM[i] < minPWM[i])
+        PWM[i] = -minPWM[i];
+    }
+  }
+}
 
 void encoderA()
 {
@@ -47,10 +98,9 @@ void serialEvent()
       int value = command.substring(separatorIndex + 1).toInt();
       Serial.println("Motor: " + String(motorIndex) + ", Value: " + String(value));
       if (motorIndex >= 0 && motorIndex < 3)
-      {
-        analogWrite(motor[motorIndex][0], value > 0 ? value : 0);
-        analogWrite(motor[motorIndex][1], value < 0 ? -value : 0);
-      }
+        setpoint[motorIndex] = value;
+      else
+        Serial.println("Invalid motor index");
     }
     else
     {
@@ -73,16 +123,21 @@ void setup()
 		pinMode(i, OUTPUT);
 
 	attachInterrupt(digitalPinToInterrupt(encoder[0][0]), encoderA, CHANGE);
-	attachInterrupt(digitalPinToInterrupt(encoder[1][0]), encoderB, CHANGE);
-	attachInterrupt(digitalPinToInterrupt(encoder[2][0]), encoderC, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(encoder[1][0]), encoderB, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(encoder[2][0]), encoderC, CHANGE);
+
+  PIDTicker.attach_ms(sampleTime, PID);
 	digitalWrite(RGB_BUILTIN, LOW);
 }
 
 void loop()
 {
-	//for(byte i: led)
-		//digitalWrite(i, random(2));
-	//neopixelWrite(RGB_BUILTIN, 255 * random(2), 255 * random(2), 255 * random(2));
-	Serial.println(String(position[0]) + "\t" + String(position[1]) + "\t" + String(position[2]));
+  for (byte z = 0; z < 3; z++)
+  {
+    analogWrite(motor[z][0], PWM[z] > 0 ? PWM[z] : 0);
+    analogWrite(motor[z][1], PWM[z] < 0 ? -PWM[z] : 0);
+    digitalWrite(led[z], PWM[z] != 0);
+  }
+	Serial.println("[ " + String(position[0]) + " | " + String(setpoint[0]) + " | " + String(PWM[0]) + " ] [ " + String(position[1]) + " | " + String(setpoint[1]) + " | " + String(PWM[1]) + " ] [ " + String(position[2]) + " | " + String(setpoint[2]) + " | " + String(PWM[2]) + " ]");
 	delay(50);
 }

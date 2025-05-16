@@ -50,8 +50,6 @@ void setup()
 	
 	led.begin(LED);
 	ros.begin(NODE_NAME);
-	ros.make_multi_int16(TOPIC_ENCODER_POS, 3, ros.enc_pos_pub);
-	ros.make_multi_int16(TOPIC_ENCODER_VEL, 3, ros.enc_vel_pub);
 	ros.echo_multi_int16(TOPIC_MOTOR_VEL, ros.motor_vel_sub, ros.multi_int16_msg);
 
 	RCCHECK(rclc_executor_init(&ros.executor, &ros.support.context, 1, &ros.allocator));
@@ -60,6 +58,8 @@ void setup()
 	motor.init(ENCODER, MOTOR);
 	alerts.attach_ms(enc_ms, T1encoder);
 	calls.attach_ms(watchdog, CheckROS);
+	ros.make_multi_int16(TOPIC_ENCODER_POS, 3, ros.enc_pos_pub);
+	ros.make_multi_int16(TOPIC_ENCODER_VEL, 3, ros.enc_vel_pub);
 }
 
 void loop()

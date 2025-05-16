@@ -92,6 +92,11 @@ document.getElementById('go').addEventListener('click', () => {
 		topic: '/world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos',
 		data: parseFloat(document.getElementById('z-input').value)
 	})
+	addTask([
+		parseFloat(document.getElementById('x-input').value),
+		parseFloat(document.getElementById('y-input').value),
+		parseFloat(document.getElementById('z-input').value)
+	])
 })
 
 document.getElementById('home').addEventListener('click', () => {
@@ -113,10 +118,14 @@ document.getElementById('home').addEventListener('click', () => {
 	document.getElementById('x-input').value = 0.0
 	document.getElementById('y-input').value = 0.0
 	document.getElementById('z-input').value = 0.0
+	addTask([
+		parseFloat(0.0),
+		parseFloat(0.0),
+		parseFloat(0.0)
+	])
 })
 
 document.getElementById('random').addEventListener('click', () => {
-	// random between -0.1 and 0.1
 	const randomX = (Math.random() * 0.2 - 0.1).toFixed(3),
 		randomY = (Math.random() * 0.2 - 0.1).toFixed(3),
 		randomZ = (Math.random() * 0.2 - 0.1).toFixed(3)
@@ -142,4 +151,57 @@ document.getElementById('random').addEventListener('click', () => {
 		topic: '/world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos',
 		data: parseFloat(randomZ)
 	})
+	addTask([
+		parseFloat(randomX),
+		parseFloat(randomY),
+		parseFloat(randomZ)
+	])
 })
+
+document.getElementById('cancel-works').addEventListener('click', () => {
+	const div = document.getElementById('progress'),
+		ul = div.querySelector('ul')
+	while (ul.children.length > 0) {
+		ul.children[0].remove()
+	}
+	const li = document.createElement('li')
+	li.className = 'task'
+	li.innerHTML = `<p>Esperando...</p>`
+	ul.appendChild(li)
+})
+
+document.getElementById('clear-history').addEventListener('click', () => {
+	const div = document.getElementById('progress'),
+		ul = div.querySelector('ul')
+	while (ul.children.length > 0) {
+		ul.children[0].remove()
+	}
+	const li = document.createElement('li')
+	li.className = 'task'
+	li.innerHTML = `<p>Historial vacío</p>`
+	ul.appendChild(li)
+})
+
+function addTask(data) {
+	const div = document.getElementById('progress'),
+		ul = div.querySelector('ul'),
+		li = document.createElement('li')
+	if (ul.children.length === 1 && ul.children[0].querySelector('p').textContent === 'Esperando...') {
+		ul.children[0].remove()
+	}
+	li.className = 'task'
+	li.id = 'task' + (ul.children.length + 1)
+	li.innerHTML = `<p class="display" id="li-text">[${data[0].toFixed(3)}, ${data[1].toFixed(3)}, ${data[2].toFixed(3)}]</p>
+					<button id="cancel${ul.children.length + 1}" class="cancel">x</button>`
+	ul.insertBefore(li, ul.firstChild)
+	const cancelButton = li.querySelector('.cancel')
+	cancelButton.addEventListener('click', () => {
+		li.remove()
+		if (ul.children.length === 0) {
+			const li = document.createElement('li')
+			li.className = 'task'
+			li.innerHTML = `<p>Esperando...</p>`
+			ul.appendChild(li)
+		}
+	})
+}
