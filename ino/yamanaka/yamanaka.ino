@@ -3,7 +3,7 @@
 const byte led[4] = {11, 12, 13, 14};
 const byte motor[3][2] = {
 	{17,18},
-	{10, 9},
+	{10, 9}, //164
 	{3, 8}
 }, encoder[3][2] = {
 	{5, 4},
@@ -12,30 +12,34 @@ const byte motor[3][2] = {
 };
 
 //Encoder
-volatile long position[3] = {0, 0, 0},
-         setpoint[3] = {0, 0, 0};
+volatile long position[3] = {0, 0, 0};
+float setpoint[3] = {0, 0, 0};
 
 //PID 
 Ticker PIDTicker;
 int sampleTime = 100;
-double Kp[3] = {0.1, 0.1, 0.1},
-       Ki[3] = {0.005, 0.005, 0.005},
-       Kd[3] = {0.1, 0.1, 0.1},
+double Kp[3] = {0.375, 0.375, 0.375},
+       Ki[3] = {0.0974, 0.0974, 0.0974},
+       Kd[3] = {0.01, 0.01, 0.01},
        KpError[3] = {0, 0, 0},
        KiError[3] = {0, 0, 0},
        KdError[3] = {0, 0, 0},
        CacheError[3] = {0, 0, 0},
        output[3] = {0, 0, 0};
 float outMin[3] = {-255, -255, -255},
-      outMax[3] = {255, 255, 255};
+      outMax[3] = {255, 255, 255},
+      PPr[3] = {97.7, 97.7, 360}; // pulse per reduction
 int PWM[3] = {0, 0, 0},
-     minPWM[3] = {90, 140, 45};
+    minPWM[3] = {92, 120, 10},
+    PPR[3] = {22, 22, 360}, // pulse per revolution
+    mPr[3] = {8, 8, 8}; // milimeters per revolution
 
 void PID()
 {
   for(byte i = 0; i < 3; i++)
   {
-    double error = setpoint[i] - position[i];
+    double pos = float(position[i] * mPr[i]) / PPr[i],
+      error = setpoint[i] - pos;
 
     KpError[i] = Kp[i] * error;
     KiError[i] += Ki[i] * error * (sampleTime / 1000.0);
@@ -52,13 +56,10 @@ void PID()
       output[i] = outMin[i];
 
     PWM[i] = output[i];
-    if(PWM[i] != 0)
-    {
-      if(PWM[i] > 0 && PWM[i] < minPWM[i])
-        PWM[i] = minPWM[i];
-      else if(PWM[i] < 0 && -PWM[i] < minPWM[i])
-        PWM[i] = -minPWM[i];
-    }
+    if(PWM[i] > 0 && PWM[i] < minPWM[i])
+      PWM[i] += minPWM[i];
+    else if(PWM[i] < 0 && PWM[i] > -minPWM[i])
+      PWM[i] -= minPWM[i];
   }
 }
 
@@ -138,6 +139,16 @@ void loop()
     analogWrite(motor[z][1], PWM[z] < 0 ? -PWM[z] : 0);
     digitalWrite(led[z], PWM[z] != 0);
   }
-	Serial.println("[ " + String(position[0]) + " | " + String(setpoint[0]) + " | " + String(PWM[0]) + " ] [ " + String(position[1]) + " | " + String(setpoint[1]) + " | " + String(PWM[1]) + " ] [ " + String(position[2]) + " | " + String(setpoint[2]) + " | " + String(PWM[2]) + " ]");
+	Serial.println(
+      "[ " + String(setpoint[0]) +
+      " | " + String(position[0] * mPr[0] / PPr[0]) + " | " +
+      String(PWM[0]) + " ]\t" +
+      "[ " + String(setpoint[1]) +
+      " | " + String(position[1] * mPr[1] / PPr[1]) + " | " +
+      String(PWM[1]) + " ]\t" +
+      "[ " + String(setpoint[2]) +
+      " | " + String(position[2] * mPr[2] / PPr[2]) + " | " +
+      String(PWM[2]) + " ]\t"
+      );
 	delay(50);
 }
