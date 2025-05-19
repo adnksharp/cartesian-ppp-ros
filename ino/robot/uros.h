@@ -6,9 +6,6 @@
 #include <rclc/rclc.h>
 #include <rclc/executor.h>
 
-#include <std_msgs/msg/u_int8.h>
-#include <std_msgs/msg/u_int8_multi_array.h>
-#include <std_msgs/msg/int16.h>
 #include <std_msgs/msg/int16_multi_array.h>
 
 #define RCCHECK(fn) { rcl_ret_t temp_rc = fn; if((temp_rc != RCL_RET_OK)){err(true, true);}}
@@ -16,10 +13,9 @@
 
 struct UROS 
 {
-    rcl_subscription_t motor_vel_sub;
-    rcl_publisher_t enc_pos_pub, enc_vel_pub;
+    rcl_subscription_t topic_sub;
+    rcl_publisher_t enc_pos_pub, topic_pub;
 	
-	std_msgs__msg__UInt8MultiArray multi_uint8_msg;
 	std_msgs__msg__Int16MultiArray multi_int16_msg;
 
     rclc_executor_t executor;
@@ -30,17 +26,8 @@ struct UROS
 
     void begin(const char *NODE_NAME);
     
-	void make_uint8(const char * topic_name, rcl_publisher_t & publisher_uint8);
-	void echo_uint8(const char * topic_name, rcl_subscription_t & subscription_uint8, std_msgs__msg__UInt8 & msg);
-	void make_multi_uint8(const char * topic_name, size_t size, rcl_publisher_t & publisher_multi_uint8);
-	void echo_multi_uint8(const char * topic_name, rcl_subscription_t & subscription_multi_uint8, std_msgs__msg__UInt8MultiArray & msg);
-	void make_int16(const char * topic_name, rcl_publisher_t & publisher_int16);
-	void echo_int16(const char * topic_name, rcl_subscription_t & subscription_int16, std_msgs__msg__Int16 & msg);
 	void make_multi_int16(const char * topic_name, size_t size, rcl_publisher_t & publisher_multi_int16);
 	void echo_multi_int16(const char * topic_name, rcl_subscription_t & subscription_multi_int16, std_msgs__msg__Int16MultiArray & msg);
 
-	void post_uint8(uint8_t data, rcl_publisher_t & publisher_uint8);
-	void post_multi_uint8(uint8_t * data, size_t size, rcl_publisher_t & publisher_multi_uint8);
-	void post_int16(int16_t data, rcl_publisher_t & publisher_int16);
 	void post_multi_int16(int16_t * data, size_t size, rcl_publisher_t & publisher_multi_int16);
 };

@@ -7,21 +7,24 @@ byte LED[6] = {11, 12, 13, 14, 2, 0};
 byte MOTOR[3][2] = {
 	{17, 18},
 	{10, 9},
-	{3, 8}
+	{8, 3}
 }, ENCODER[3][2] = {
 	{5, 4},
 	{6, 7},
 	{16, 15}
 };
 
-const int enc_ms = 50;
+int motorMin[3] = {98, 102, 39};
+float PPMM[3] = {12.1, 12.1, 118.7};
+
+// pid config
+double kp[3] = {0.375, 0.375},
+	   ki[3] = {0.0974, 0.0974, 0.0974},
+	   kd[3] = {0.01, 0.01, 0.01};
 
 // uROS configurations
 char *NODE_NAME  = "sensiact",
-	 *TOPIC_LIM = "sensiact/limit",
-	 *TOPIC_STATUS  = "sensiact/led",
-	 *TOPIC_ENCODER_POS = "sensiact/encoder/pos",
-	 *TOPIC_ENCODER_VEL = "sensiact/encoder/vel",
-	 *TOPIC_MOTOR_VEL = "sensiact/motor/vel";
+	 *TOPIC_PUB = "yoba/sensiact/info",
+	 *TOPIC_ECHO = "yoba/sensiact/cmd_pos";
 
-byte watchdog = 15, timeout = 10;
+byte timeout = 100;

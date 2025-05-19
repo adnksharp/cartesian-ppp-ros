@@ -2,23 +2,21 @@ const ros = require('rclnodejs'),
 	wocket = require('ws'),
 	NODE_NAME = 'ui_websocket',
 	ECHO_TOPICS = [
-		'/world/empty/model/carobot/joint/prismatic_0_joint/state', // Gazebo joint states
-		'/world/empty/model/carobot/joint/prismatic_1_joint/state', 
-		'/world/empty/model/carobot/joint/prismatic_2_joint/state',
-		'/sensiact/encoder/pos', // uROS encoder states
-		'/sensiact/encoder/vel'
+		'/yoba/carobot/joint_0/state', // Gazebo joint states
+		'/yoba/carobot/joint_1/state', 
+		'/yoba/carobot/joint_2/state',
+		'/yoba/sensiact/info', // uROS hardware state
 	],
 	PUBLISH_TOPICS = [
-		'/world/empty/model/carobot/joint/prismatic_0_joint/cmd_pos', // Gazebo joint commands
-		'/world/empty/model/carobot/joint/prismatic_1_joint/cmd_pos',
-		'/world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos',
-		'/sensiact/motor/vel' // uROS motor commands
+		'/yoba/carobot/joint_0/cmd_pos', // Gazebo joint commands
+		'/yoba/carobot/joint_1/cmd_pos',
+		'/yoba/carobot/joint_2/cmd_pos',
+		'/yoba/sensiact/cmd_pos' // uROS pos commands
 	],
 	ECHO_TOPIC_TYPES = [
 		'sensor_msgs/msg/JointState',
 		'sensor_msgs/msg/JointState',
 		'sensor_msgs/msg/JointState',
-		'std_msgs/msg/Int16MultiArray',
 		'std_msgs/msg/Int16MultiArray'
 	],
 	PUBLISH_TOPIC_TYPES = [
@@ -70,7 +68,6 @@ wws.on('connection', client => {
 					publish(msg)
 					break
 				case 'request_status':
-					// Lógica para obtener y enviar el estado
 					break
 				default:
 					log('warn', `Tipo de mensaje no reconocido: ${msg.type}`)
@@ -99,6 +96,7 @@ function ROSConf(node, wws) {
 				data: msg
 			}
 			wws.clients.forEach(client => {
+				log('info', `Escuchando ${topic}`)
 				client.send(JSON.stringify(data))
 			})
 		})

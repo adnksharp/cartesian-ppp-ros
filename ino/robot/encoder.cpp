@@ -31,10 +31,11 @@ void M3Update()
 }
 
 
-void Motor::init(byte encoder[3][2], byte motor[3][2])
+void Motor::begin(byte encoder[3][2], byte motor[3][2])
 {
 	for (byte i = 0; i < 3; i++)
 	{
+		setpoint[i] = 0.0;
 		for (byte j = 0; j < 2; j++)
 		{
 			in[i][j] = encoder[i][j];
@@ -48,7 +49,7 @@ void Motor::init(byte encoder[3][2], byte motor[3][2])
 	attachInterrupt(digitalPinToInterrupt(in[2][0]), M3Update, CHANGE);
 }
 
-void Motor::run(byte id, short speed)
+void Motor::set(byte id, short speed)
 {
 	digitalWrite(LED[id], speed != 0);
 	analogWrite(out[id][0], speed > 0 ? speed : 0);

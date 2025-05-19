@@ -33,9 +33,9 @@
   "modes": {
     "window": {
       "title": "ROS UI",
-      "width": 820,
+      "width": 410,
       "height": 560,
-      "minWidth": 525,
+      "minWidth": 270,
       "minHeight": 590,
       "center": true,
       "fullScreen": false,

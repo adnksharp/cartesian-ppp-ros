@@ -54,16 +54,12 @@ function handleIncomingMessage(message) {
 		case 'echo':
 			if (message.data.position && message.data.position !== undefined) {
 				updateConnectionStatus('gazebo-status', 'Conectado')
-				if (message.topic === '/world/empty/model/carobot/joint/prismatic_0_joint/state') {
-					document.getElementById('x-status').textContent = parseFloat(message.data.position[0]).toFixed(3)
-				} else if (message.topic === '/world/empty/model/carobot/joint/prismatic_1_joint/state') {
-					document.getElementById('y-status').textContent = parseFloat(message.data.position[0]).toFixed(3)
-				} else if (message.topic === '/world/empty/model/carobot/joint/prismatic_2_joint/state') {
-					document.getElementById('z-status').textContent = parseFloat(message.data.position[0]).toFixed(3)
-				}
 			}
-			if (message.topic === '/sensiact/encoder/pos') {
+			if (message.topic === '/yoba/sensiact/info') {
 				updateConnectionStatus('uros-status', 'Conectado')
+				document.getElementById('x-status').textContent = parseFloat(message.data.data[0] / 1000).toFixed(3)
+				document.getElementById('y-status').textContent = parseFloat(message.data.data[1] / 1000).toFixed(3)
+				document.getElementById('z-status').textContent = parseFloat(message.data.data[2] / 1000).toFixed(3)
 			}
 			break
 		default:
@@ -79,50 +75,24 @@ function updateConnectionStatus(elementId, status) {
 document.getElementById('go').addEventListener('click', () => {
 	sendMessage({
 		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_0_joint/cmd_pos',
-		data: parseFloat(document.getElementById('x-input').value)
+		topic: '/yoba/sensiact/cmd_pos',
+		data: [
+			parseFloat(1000 * document.getElementById('x-input').value),
+			parseFloat(1000 * document.getElementById('y-input').value),
+			parseFloat(1000 * document.getElementById('z-input').value)
+		]
 	})
-	sendMessage({
-		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_1_joint/cmd_pos',
-		data: parseFloat(document.getElementById('y-input').value)
-	})
-	sendMessage({
-		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos',
-		data: parseFloat(document.getElementById('z-input').value)
-	})
-	addTask([
-		parseFloat(document.getElementById('x-input').value),
-		parseFloat(document.getElementById('y-input').value),
-		parseFloat(document.getElementById('z-input').value)
-	])
 })
 
 document.getElementById('home').addEventListener('click', () => {
-	sendMessage({
-		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_0_joint/cmd_pos',
-		data: parseFloat(0.0)
-	})
-	sendMessage({
-		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_1_joint/cmd_pos',
-		data: parseFloat(0.0)
-	})
-	sendMessage({
-		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos',
-		data: parseFloat(0.0)
-	})
 	document.getElementById('x-input').value = 0.0
 	document.getElementById('y-input').value = 0.0
 	document.getElementById('z-input').value = 0.0
-	addTask([
-		parseFloat(0.0),
-		parseFloat(0.0),
-		parseFloat(0.0)
-	])
+	sendMessage({
+		type: 'publish_command',
+		topic: '/yoba/sensiact/cmd_pos',
+		data: [0, 0, 0]
+	})
 })
 
 document.getElementById('random').addEventListener('click', () => {
@@ -136,72 +106,11 @@ document.getElementById('random').addEventListener('click', () => {
 
 	sendMessage({
 		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_0_joint/cmd_pos',
-		data: parseFloat(randomX)
+		topic: '/yoba/sensiact/cmd_pos',
+		data: [
+			parseFloat(1000 * document.getElementById('x-input').value),
+			parseFloat(1000 * document.getElementById('y-input').value),
+			parseFloat(1000 * document.getElementById('z-input').value)
+		]
 	})
-
-	sendMessage({
-		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_1_joint/cmd_pos',
-		data: parseFloat(randomY)
-	})
-
-	sendMessage({
-		type: 'publish_command',
-		topic: '/world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos',
-		data: parseFloat(randomZ)
-	})
-	addTask([
-		parseFloat(randomX),
-		parseFloat(randomY),
-		parseFloat(randomZ)
-	])
 })
-
-document.getElementById('cancel-works').addEventListener('click', () => {
-	const div = document.getElementById('progress'),
-		ul = div.querySelector('ul')
-	while (ul.children.length > 0) {
-		ul.children[0].remove()
-	}
-	const li = document.createElement('li')
-	li.className = 'task'
-	li.innerHTML = `<p>Esperando...</p>`
-	ul.appendChild(li)
-})
-
-document.getElementById('clear-history').addEventListener('click', () => {
-	const div = document.getElementById('progress'),
-		ul = div.querySelector('ul')
-	while (ul.children.length > 0) {
-		ul.children[0].remove()
-	}
-	const li = document.createElement('li')
-	li.className = 'task'
-	li.innerHTML = `<p>Historial vacío</p>`
-	ul.appendChild(li)
-})
-
-function addTask(data) {
-	const div = document.getElementById('progress'),
-		ul = div.querySelector('ul'),
-		li = document.createElement('li')
-	if (ul.children.length === 1 && ul.children[0].querySelector('p').textContent === 'Esperando...') {
-		ul.children[0].remove()
-	}
-	li.className = 'task'
-	li.id = 'task' + (ul.children.length + 1)
-	li.innerHTML = `<p class="display" id="li-text">[${data[0].toFixed(3)}, ${data[1].toFixed(3)}, ${data[2].toFixed(3)}]</p>
-					<button id="cancel${ul.children.length + 1}" class="cancel">x</button>`
-	ul.insertBefore(li, ul.firstChild)
-	const cancelButton = li.querySelector('.cancel')
-	cancelButton.addEventListener('click', () => {
-		li.remove()
-		if (ul.children.length === 0) {
-			const li = document.createElement('li')
-			li.className = 'task'
-			li.innerHTML = `<p>Esperando...</p>`
-			ul.appendChild(li)
-		}
-	})
-}
