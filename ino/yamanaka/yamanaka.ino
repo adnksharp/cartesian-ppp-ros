@@ -2,9 +2,9 @@
 //Hardware config
 const byte led[4] = {11, 12, 13, 14};
 const byte motor[3][2] = {
-	{17,18},
-	{10, 9}, //164
-	{3, 8}
+	{17,18}, // 190
+	{10, 9}, // 164
+	{8, 3}
 }, encoder[3][2] = {
 	{5, 4},
 	{6, 7},
@@ -27,20 +27,20 @@ double Kp[3] = {0.375, 0.375, 0.375},
        CacheError[3] = {0, 0, 0},
        output[3] = {0, 0, 0};
 float outMin[3] = {-255, -255, -255},
-      outMax[3] = {255, 255, 255},
-      PPr[3] = {97.7, 97.7, 360}; // pulse per reduction
+      outMax[3] = {255, 255, 255}, //+813, -970
+      PPMM[3] = {12.1, 12.1, 118.7}; // pulse per millimeters
 int PWM[3] = {0, 0, 0},
-    minPWM[3] = {92, 120, 10},
-    PPR[3] = {22, 22, 360}, // pulse per revolution
-    mPr[3] = {8, 8, 8}; // milimeters per revolution
+    minPWM[3] = {98, 102, 39},
+    PPR[3] = {22, 22, 22}; // pulse per revolution
+    //mPr[3] = {8, 8, 8}; // milimeters per revolution
 
 void PID()
 {
   for(byte i = 0; i < 3; i++)
   {
-    double pos = float(position[i] * mPr[i]) / PPr[i],
-      error = setpoint[i] - pos;
-
+    double pos, error;
+    pos = float(position[i]) / PPMM[i];
+    error = setpoint[i] - pos;
     KpError[i] = Kp[i] * error;
     KiError[i] += Ki[i] * error * (sampleTime / 1000.0);
     KiError[i] = constrain(KiError[i], outMin[i], outMax[i]);
@@ -60,6 +60,9 @@ void PID()
       PWM[i] += minPWM[i];
     else if(PWM[i] < 0 && PWM[i] > -minPWM[i])
       PWM[i] -= minPWM[i];
+    analogWrite(motor[i][0], PWM[i] > 0 ? PWM[i] : 0);
+    analogWrite(motor[i][1], PWM[i] < 0 ? -PWM[i] : 0);
+    digitalWrite(led[i], PWM[i] != 0);
   }
 }
 
@@ -133,22 +136,14 @@ void setup()
 
 void loop()
 {
-  for (byte z = 0; z < 3; z++)
-  {
-    analogWrite(motor[z][0], PWM[z] > 0 ? PWM[z] : 0);
-    analogWrite(motor[z][1], PWM[z] < 0 ? -PWM[z] : 0);
-    digitalWrite(led[z], PWM[z] != 0);
-  }
 	Serial.println(
       "[ " + String(setpoint[0]) +
-      " | " + String(position[0] * mPr[0] / PPr[0]) + " | " +
-      String(PWM[0]) + " ]\t" +
-      "[ " + String(setpoint[1]) +
-      " | " + String(position[1] * mPr[1] / PPr[1]) + " | " +
-      String(PWM[1]) + " ]\t" +
-      "[ " + String(setpoint[2]) +
-      " | " + String(position[2] * mPr[2] / PPr[2]) + " | " +
-      String(PWM[2]) + " ]\t"
+      " | " + String(position[0] / PPMM[0]) + " | " +
+      String(PWM[0]) + " ] [ " + String(setpoint[1]) +
+      " | " + String(position[1] / PPMM[1]) + " | " +
+      String(PWM[1]) + " ] [ " + String(setpoint[2]) +
+      " | " + String(position[2] / PPMM[2]) + " | " +
+      String(PWM[2]) + " ]"
       );
 	delay(50);
 }
