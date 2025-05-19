@@ -92,12 +92,12 @@
     <child
       link="prismatic_0" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-0.104"
       upper="0.09"
-      effort="5"
-      velocity="2" />
+      effort="5e3"
+      velocity="20" />
     <dynamics
       damping="0.01"
       friction="0.1" />
@@ -167,8 +167,8 @@
     <limit
       lower="-0.0865"
       upper="0.0865"
-      effort="5"
-      velocity="2" />
+      effort="5e3"
+      velocity="20" />
     <dynamics
       damping="0.01"
       friction="0.1" />
@@ -190,7 +190,7 @@
         xyz="-0.015 0.055 0.00"
         rpy="0 0 0" />
       <mass
-		value="0.30612" />
+		value=".030612" />
       <inertia
         ixx="0.30471576885987"
         ixy="0.0104672752987869"
@@ -234,12 +234,12 @@
     <child
       link="prismatic_2" />
     <axis
-      xyz="0 1 0" />
+      xyz="0 -1 0" />
     <limit
       lower="-0.0889"
       upper="0.0889"
-      effort="5"
-      velocity="2" />
+      effort="5e3"
+      velocity="20" />
     <dynamics
       damping="0.01"
       friction="0.1" />
@@ -259,26 +259,26 @@
 		  filename="gz-sim-joint-state-publisher-system"
 		  name="gz::sim::systems::JointStatePublisher">
 		  <joint_name>prismatic_0_joint</joint_name>
-		  <topic>world/empty/model/carobot/joint/prismatic_0_joint/state</topic>
+		  <topic>yoba/carobot/joint_0/state</topic>
 	  </plugin>
 	  <plugin
 		  filename="gz-sim-joint-state-publisher-system"
 		  name="gz::sim::systems::JointStatePublisher">
 		  <joint_name>prismatic_1_joint</joint_name>
-		  <topic>world/empty/model/carobot/joint/prismatic_1_joint/state</topic>
+		  <topic>yoba/carobot/joint_1/state</topic>
 	  </plugin>
 	  <plugin
 		  filename="gz-sim-joint-state-publisher-system"
 		  name="gz::sim::systems::JointStatePublisher">
 		  <joint_name>prismatic_2_joint</joint_name>
-		  <topic>world/empty/model/carobot/joint/prismatic_2_joint/state</topic>
+		  <topic>yoba/carobot/joint_2/state</topic>
 	  </plugin>
   	  <plugin
-        filename="gz-sim-joint-position-controller-system"
+		filename="gz-sim-joint-position-controller-system"
         name="gz::sim::systems::JointPositionController">
         <joint_name>prismatic_0_joint</joint_name>
-		<topic>world/empty/model/carobot/joint/prismatic_0_joint/cmd_pos</topic>
-        <p_gain>68.21</p_gain>
+		<topic>yoba/carobot/joint_0/cmd_pos</topic>
+		<p_gain>68.21</p_gain>
         <i_gain>0.56</i_gain>
         <d_gain>34.14</d_gain>
 	  </plugin>
@@ -286,8 +286,8 @@
         filename="gz-sim-joint-position-controller-system"
         name="gz::sim::systems::JointPositionController">
         <joint_name>prismatic_1_joint</joint_name>
-		<topic>world/empty/model/carobot/joint/prismatic_1_joint/cmd_pos</topic>
-        <p_gain>68.21</p_gain>
+		<topic>yoba/carobot/joint_1/cmd_pos</topic>
+		<p_gain>68.21</p_gain>
         <i_gain>0.56</i_gain>
         <d_gain>34.14</d_gain>
 	  </plugin>
@@ -295,8 +295,8 @@
         filename="gz-sim-joint-position-controller-system"
         name="gz::sim::systems::JointPositionController">
         <joint_name>prismatic_2_joint</joint_name>
-		<topic>world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos</topic>
-        <p_gain>68.21</p_gain>
+		<topic>yoba/carobot/joint_2/cmd_pos</topic>
+		<p_gain>68.21</p_gain>
         <i_gain>0.56</i_gain>
         <d_gain>34.14</d_gain>
 	  </plugin>

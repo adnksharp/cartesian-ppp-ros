@@ -96,7 +96,14 @@ function ROSConf(node, wws) {
 				data: msg
 			}
 			wws.clients.forEach(client => {
-				log('info', `Escuchando ${topic}`)
+				if (topic === '/yoba/sensiact/info') {
+					for (let i = 0; i < 3; i++) {
+						const gz_data = data.data.data[i] / 1000.0
+						const gz_topic = `/yoba/carobot/joint_${i}/cmd_pos`
+						const gz_pub = node.createPublisher('std_msgs/msg/Float64', gz_topic)
+						gz_pub.publish({ data: gz_data })
+					}
+				}
 				client.send(JSON.stringify(data))
 			})
 		})
@@ -120,3 +127,20 @@ function ROSConf(node, wws) {
 }
 
 start(wws)
+
+process.on('SIGINT', async () => {
+	log('info', 'Cerrando...')
+	try {
+		await node.destroyNode()
+		wwsServer.close(() => {
+			log('info', 'Servidor WebSocket cerrado.')
+			process.exit(0)
+		})
+		setTimeout(() => {
+			log('warn', 'Forzando el cierre del servidor WebSocket.')
+			process.exit(1)
+		}, 5000)
+	} catch (err) {
+		process.exit(0)
+	}
+})

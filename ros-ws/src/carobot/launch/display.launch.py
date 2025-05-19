@@ -82,26 +82,15 @@ def generate_launch_description() -> LaunchDescription:
         name='robot_gz_bridge',
         output='screen',
         arguments=[
-            '/world/empty/model/carobot/joint/prismatic_0_joint/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
-            '/world/empty/model/carobot/joint/prismatic_0_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
-            '/world/empty/model/carobot/joint/prismatic_1_joint/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
-            '/world/empty/model/carobot/joint/prismatic_1_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
-            '/world/empty/model/carobot/joint/prismatic_2_joint/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
-            '/world/empty/model/carobot/joint/prismatic_2_joint/state@sensor_msgs/msg/JointState[gz.msgs.Model',
-
+            '/yoba/carobot/joint_0/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
+            '/yoba/carobot/joint_0/state@sensor_msgs/msg/JointState[gz.msgs.Model',
+            '/yoba/carobot/joint_1/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
+            '/yoba/carobot/joint_1/state@sensor_msgs/msg/JointState[gz.msgs.Model',
+            '/yoba/carobot/joint_2/cmd_pos@std_msgs/msg/Float64]gz.msgs.Double',
+            '/yoba/carobot/joint_2/state@sensor_msgs/msg/JointState[gz.msgs.Model',
         ],
     )
     ld.add_action(gz_bridge_node)
-
-    """
-    # Agregar nodo conector entre joint_states y gz
-    ld.add_action(Node(
-        package='carobot',
-        executable='republisher.py',
-        name='joint_states_enricher',
-        output='screen',
-    ))
-    """
 
     # Ejecutar gz sim -r -v 4 empty.sdf
     gz_sim_node = ExecuteProcess(

@@ -96,9 +96,10 @@ document.getElementById('home').addEventListener('click', () => {
 })
 
 document.getElementById('random').addEventListener('click', () => {
-	const randomX = (Math.random() * 0.2 - 0.1).toFixed(3),
-		randomY = (Math.random() * 0.2 - 0.1).toFixed(3),
-		randomZ = (Math.random() * 0.2 - 0.1).toFixed(3)
+	//random between -0,05 to 0,05
+	const randomX = Math.random() * (0.05 - (-0.05)) + (-0.05)
+		randomY = Math.random() * (0.05 - (-0.05)) + (-0.05)
+		randomZ = Math.random() * (0.05 - (-0.05)) + (-0.05)
 
 	document.getElementById('x-input').value = randomX
 	document.getElementById('y-input').value = randomY

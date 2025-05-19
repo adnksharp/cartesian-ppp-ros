@@ -3,6 +3,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
 
+#names = ['joint_0', 'joint_1', 'joint_2']
 names = ['prismatic_0_joint', 'prismatic_1_joint', 'prismatic_2_joint']
 positions = [0.0, 0.0, 0.0]
 velocities = [0.0, 0.0, 0.0]
@@ -18,7 +19,7 @@ class JointStatePublisher(Node):
 
         self.subscriber_ = [ self.create_subscription(
             JointState,
-            f'/world/empty/model/carobot/joint/prismatic_{i}_joint/state',
+            f'/yoba/carobot/joint_{i}/state',
             self.gz_callback,
             10) for i in range(3) ]
 

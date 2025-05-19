@@ -13,8 +13,6 @@ LEDs led;
 UROS ros;
 Motor motor;
 PID pid;
-//Ticker alerts;
-//Ticker calls;
 Ticker PIDTicker;
 
 extern void calc();
@@ -22,22 +20,6 @@ extern void M1Update();
 extern void M2Update();
 extern void M3Update();
 extern void err(bool rgb, bool fail);
-
-/*
-void T1encoder()
-{
-	for (int i = 0; i < 3; i++)
-	{
-		motor.vel[i] = (motor.pos[i] - motor.cache[i]) / (enc_ms / 1000.0);
-		motor.cache[i] = motor.pos[i];
-	}
-}
-
-void CheckROS()
-{
-	RCCHECK(rclc_executor_spin_some(&ros.executor, RCL_MS_TO_NS(timeout)));
-}
-*/
 
 void subscription_callback(const void * msgin)
 {
@@ -85,8 +67,6 @@ void setup()
 	motor.begin(ENCODER, MOTOR);
 	pid.begin(kp, ki, kd, PPMM, motorMin);
 	PIDTicker.attach_ms(pid.sample, calc);
-	//alerts.attach_ms(enc_ms, T1encoder);
-	//calls.attach_ms(watchdog, CheckROS);
 }
 
 void loop()
